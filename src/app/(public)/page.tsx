@@ -1,20 +1,8 @@
 "use client";
 
-import { homeCopy } from "@/lib/copy/pages/home";
-import { useEffect, useState } from "react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export default function Home() {
-  const [currentWeek, setCurrentWeek] = useState(1);
-  
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentWeek((prev) => (prev === 4 ? 1 : prev + 1));
-    }, 2000);
-    
-    return () => clearInterval(interval);
-  }, []);
-
   const weeks = [
     { number: 1, title: "Discovery", description: "Requirements & Planning", icon: "🔍" },
     { number: 2, title: "Design", description: "UI/UX & Prototyping", icon: "🎨" },
@@ -23,73 +11,94 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-mesh-subtle relative overflow-hidden">
-      {/* Subtle background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
-        <div className="absolute top-20 left-10 w-16 h-16 bg-green-50 rounded-full"></div>
-        <div className="absolute bottom-40 right-20 w-12 h-12 bg-green-100 rounded-lg rotate-12"></div>
-        <div className="absolute top-1/2 left-20 w-8 h-8 bg-green-50 rounded-full"></div>
-      </div>
-
-      <main className="container mx-auto px-4 pt-32 pb-16 relative z-10">
-        <div className="text-center max-w-6xl mx-auto">
-          {/* Crystal clear value proposition */}
-          <div className="mb-16">
-            {/* Main promise - what we do */}
-            <div className="mb-8">
-              <h1 className="text-2xl md:text-3xl text-gray-600 mb-4 font-medium">
-                You have an idea.
-              </h1>
-              <h2 className="text-5xl md:text-7xl font-black mb-6 tracking-tight text-gray-900 leading-[0.9]">
-                We build your<br />
-                <span className="text-green-600">MVP</span> in 4 weeks.
-              </h2>
-            </div>
-
-            {/* What we handle */}
-            <div className="mb-8">
-              <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
-                <span className="font-semibold text-gray-900">Research. Strategy. Design. Development.</span><br />
-                Everything you need to validate your idea and get to market fast.
-              </p>
-            </div>
-
-            {/* Live counter showing current week */}
-            <div className="flex items-center justify-center gap-4 text-lg font-medium text-gray-600 mb-2">
-              <span>Currently in week</span>
-              <span className="bg-green-600 text-white px-4 py-2 rounded-full text-xl font-bold min-w-[3rem] text-center">
-                {currentWeek}
-              </span>
-              <span>of our process</span>
-            </div>
-            <p className="text-sm text-gray-500">
-              Watch our 4-week methodology in action
-            </p>
-          </div>
-
-          {/* CTA Section */}
-          <ScrollReveal className="mb-16">
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a
-                href={homeCopy.hero.cta.primary.href}
-                className="bg-green-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-green-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
-              >
-                {homeCopy.hero.cta.primary.text}
-              </a>
-              <a
-                href={homeCopy.hero.cta.secondary.href}
-                className="border-2 border-green-600 text-green-700 px-8 py-4 rounded-full text-lg font-semibold hover:bg-green-50 hover:border-green-700 transition-all duration-300 bg-white"
-              >
-                {homeCopy.hero.cta.secondary.text}
-              </a>
-            </div>
-          </ScrollReveal>
+    <div className="scroll-smooth">
+      {/* Smooth scroll navigation */}
+      <style jsx global>{`
+        html {
+          scroll-behavior: smooth;
+        }
+        section {
+          scroll-snap-align: start;
+        }
+        .scroll-container {
+          scroll-snap-type: y mandatory;
+          overflow-y: scroll;
+          height: 100vh;
+        }
+      `}</style>
+      {/* Section 1: Hero - Full Height */}
+      <section className="min-h-screen bg-gradient-to-br from-green-50 via-green-25 to-white relative overflow-hidden flex items-center justify-center">
+        {/* Clean background */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          
         </div>
-      </main>
+
+        <main className="container mx-auto px-4 relative z-10">
+          <div className="text-center max-w-6xl mx-auto">
+            {/* Crystal clear value proposition */}
+            <div className="mb-10">
+              {/* Main promise - what we do */}
+              <div className="mb-6">
+                <h1 className="text-xl sm:text-2xl lg:text-3xl text-gray-600 mb-3 font-medium">
+                  You have an idea.
+                </h1>
+                <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-4 tracking-tight text-gray-900 leading-[0.85] sm:leading-[0.9]">
+                  We build your<br />
+                  <span className="text-green-600">MVP</span> in 4 weeks.
+                </h2>
+              </div>
+
+              {/* What we handle */}
+              <div className="mb-10">
+                <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 max-w-4xl mx-auto px-4 sm:px-0 leading-relaxed">
+                  <span className="font-semibold text-gray-900">Research. Design. Development. Launch.</span><br className="hidden sm:block" />
+                  <span className="sm:hidden"> </span>Everything you need to validate your idea and get to market fast.
+                </p>
+              </div>
+
+              {/* Key differentiator */}
+              <div className="mb-12 flex justify-center">
+                <div className="inline-flex items-center gap-2 bg-gray-100 px-5 py-2.5 rounded-full">
+                  <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                  <span className="text-sm font-medium text-gray-800">End-to-end service • Full ownership • Ready in 4 weeks</span>
+                </div>
+              </div>
+            </div>
+
+            {/* CTA Section */}
+            <ScrollReveal className="mb-12">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0">
+                <a
+                  href="/contact"
+                  className="w-full sm:w-auto bg-green-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-green-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 text-center"
+                >
+                  Schedule a Discovery Call
+                </a>
+                <a
+                  href="/portfolio"
+                  className="w-full sm:w-auto border-2 border-green-600 text-green-700 px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-green-50 hover:border-green-700 transition-all duration-300 bg-white text-center"
+                >
+                  View Our Work
+                </a>
+              </div>
+            </ScrollReveal>
+            
+            {/* Scroll indicator */}
+            <div className="flex flex-col items-center mt-8 md:mt-12">
+              <p className="text-xs sm:text-sm text-gray-500 mb-3 md:mb-4 px-4 text-center">Scroll to explore our process</p>
+              <div className="animate-bounce">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </main>
+      </section>
 
       {/* How We Work - Streamlined Process */}
-      <section className="py-24 bg-white relative overflow-hidden">
-        <div className="container mx-auto px-4">
+      <section className="min-h-screen bg-white relative overflow-hidden flex items-center justify-center">
+        <div className="container mx-auto px-4 py-16">
           {/* Section Title */}
           <ScrollReveal className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">How We Work</h2>
@@ -109,21 +118,13 @@ export default function Home() {
                   <div className="relative z-10">
                     {/* Week Number Badge */}
                     <div className="flex justify-center mb-6">
-                      <div className={`w-16 h-16 rounded-full flex items-center justify-center text-xl font-bold transition-all duration-500 ${
-                        currentWeek === week.number
-                          ? 'bg-green-600 text-white scale-110 shadow-lg'
-                          : 'bg-white border-2 border-gray-200 text-gray-700'
-                      }`}>
+                      <div className="w-16 h-16 rounded-full flex items-center justify-center text-xl font-bold transition-all duration-300 bg-white border-2 border-gray-200 text-gray-700 hover:bg-green-600 hover:text-white hover:border-green-600">
                         {week.number}
                       </div>
                     </div>
 
                     {/* Content Card */}
-                    <div className={`bg-white rounded-xl p-6 text-center transition-all duration-300 ${
-                      currentWeek === week.number 
-                        ? 'shadow-xl border-2 border-green-200' 
-                        : 'shadow-sm hover:shadow-md border border-gray-100'
-                    }`}>
+                    <div className="bg-white rounded-xl p-6 text-center transition-all duration-300 shadow-sm hover:shadow-lg border border-gray-100 hover:border-green-200">
                       <div className="text-4xl mb-4">{week.icon}</div>
                       <h3 className="text-lg font-bold text-gray-900 mb-3">{week.title}</h3>
                       <p className="text-gray-700 text-sm leading-relaxed">{week.description}</p>
@@ -137,8 +138,8 @@ export default function Home() {
       </section>
 
       {/* What We Handle - Core Services */}
-      <section className="py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="container mx-auto px-4 py-16">
           <ScrollReveal className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">What We Handle</h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
@@ -245,8 +246,8 @@ export default function Home() {
       </section>
 
       {/* Final CTA - Ready to Start */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="min-h-screen bg-white flex items-center justify-center">
+        <div className="container mx-auto px-4 py-16">
           <ScrollReveal className="max-w-4xl mx-auto text-center">
             <div className="bg-gradient-to-r from-green-50 to-green-100 rounded-3xl p-12 shadow-sm">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -254,7 +255,7 @@ export default function Home() {
               </h2>
               <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
                 Join the startups that have launched successful MVPs with our proven 4-week process. 
-                Let's turn your idea into reality.
+                Let&apos;s turn your idea into reality.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -277,8 +278,8 @@ export default function Home() {
       </section>
 
       {/* Trust Indicators */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="container mx-auto px-4 py-16">
           <ScrollReveal className="text-center">
             <p className="text-gray-500 text-sm mb-6">Trusted by startups and enterprises</p>
             <div className="flex justify-center items-center space-x-8 opacity-40">
