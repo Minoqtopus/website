@@ -4,7 +4,7 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 export default function Home() {
   const weeks = [
-    { number: 1, title: "Discovery", description: "Requirements & Planning", icon: "🔍" },
+    { number: 1, title: "Research", description: "Requirements & Planning", icon: "🔍" },
     { number: 2, title: "Design", description: "UI/UX & Prototyping", icon: "🎨" },
     { number: 3, title: "Development", description: "Build & Integration", icon: "💻" },
     { number: 4, title: "Launch", description: "Deploy & Deliver", icon: "🚀" },
@@ -96,38 +96,32 @@ export default function Home() {
         </main>
       </section>
 
-      {/* How We Work - Streamlined Process */}
-      <section className="min-h-screen bg-white relative overflow-hidden flex items-center justify-center">
+      {/* How We Work - Doodle Process Graph */}
+      <section className="min-h-screen bg-gradient-to-b from-white to-green-25 relative overflow-hidden flex items-center justify-center">
         <div className="container mx-auto px-4 py-16">
           {/* Section Title */}
-          <ScrollReveal className="text-center mb-20">
+          <ScrollReveal className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">How We Work</h2>
             <p className="text-xl text-gray-700 max-w-2xl mx-auto">
-              Our battle-tested process takes you from idea to launch in exactly 4 weeks.
+              Our 4-week journey from your idea to a market-ready MVP
             </p>
           </ScrollReveal>
 
-          {/* Process Flow */}
-          <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-              {/* Connecting Line */}
-              <div className="hidden md:block absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-green-200 via-green-300 to-green-200 z-0"></div>
-              
+          {/* Process Steps */}
+          <div className="max-w-3xl mx-auto">
+            <div className="space-y-6">
               {weeks.map((week, index) => (
-                <ScrollReveal key={week.number} delay={index * 150}>
-                  <div className="relative z-10">
-                    {/* Week Number Badge */}
-                    <div className="flex justify-center mb-6">
-                      <div className="w-16 h-16 rounded-full flex items-center justify-center text-xl font-bold transition-all duration-300 bg-white border-2 border-gray-200 text-gray-700 hover:bg-green-600 hover:text-white hover:border-green-600">
-                        {week.number}
-                      </div>
+                <ScrollReveal key={week.number} delay={index * 100}>
+                  <div className="flex items-center gap-6 p-6 bg-white rounded-lg shadow-sm border border-gray-100">
+                    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <span className="text-2xl">{week.icon}</span>
                     </div>
-
-                    {/* Content Card */}
-                    <div className="bg-white rounded-xl p-6 text-center transition-all duration-300 shadow-sm hover:shadow-lg border border-gray-100 hover:border-green-200">
-                      <div className="text-4xl mb-4">{week.icon}</div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-3">{week.title}</h3>
-                      <p className="text-gray-700 text-sm leading-relaxed">{week.description}</p>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3 mb-2">
+                        <h3 className="text-xl font-bold text-gray-900">{week.title}</h3>
+                        <span className="text-sm font-medium text-green-600 bg-green-50 px-2 py-1 rounded">Week {week.number}</span>
+                      </div>
+                      <p className="text-gray-600">{week.description}</p>
                     </div>
                   </div>
                 </ScrollReveal>
