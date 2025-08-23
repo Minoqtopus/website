@@ -61,7 +61,7 @@ export default function Home() {
               </ScrollReveal>
 
               <ScrollReveal delay={0.2}>
-                <h1 className="text-6xl sm:text-8xl md:text-10xl lg:text-8xl xl:text-[8rem] font-black mb-10 tracking-tight text-gray-900 leading-[1.25] font-display">
+                <h1 className="text-6xl sm:text-8xl md:text-10xl lg:text-8xl xl:text-[8rem] font-black mb-10 tracking-tight text-gray-900 leading-[1] font-display">
                   Build Your{" "}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-700 via-green-600 to-green-700 relative inline-block">
                     MVP
