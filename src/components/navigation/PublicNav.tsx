@@ -53,7 +53,7 @@ export default function Navigation() {
             <div className="ml-4">
               <Link
                 href="/contact"
-                className="bg-gradient-brand-primary text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-gradient-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
+                className="bg-green-600 text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-green-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
               >
                 Start Project
               </Link>
@@ -103,7 +103,7 @@ export default function Navigation() {
               <div className="mt-4 pt-4 border-t border-green-100/50">
                 <Link
                   href="/contact"
-                  className="block bg-gradient-brand-primary text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-gradient-primary-dark transition-all duration-300 shadow-lg text-center"
+                  className="block bg-green-600 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-green-700 transition-all duration-300 shadow-lg text-center"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Start Project
