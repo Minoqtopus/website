@@ -202,6 +202,27 @@ html {
   }
 }
 
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Ensure text doesn't overflow on very small screens */
+  h1 {
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+  
+  /* Better touch targets on mobile */
+  button,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
 /* Hero section specific enhancements */
 .hero-glow {
   animation: floatAndGlow 8s ease-in-out infinite;
