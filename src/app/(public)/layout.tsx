@@ -1,4 +1,3 @@
-import PublicNav from "@/components/navigation/PublicNav";
 
 export default function PublicLayout({
   children,
@@ -7,7 +6,7 @@ export default function PublicLayout({
 }) {
   return (
     <>
-      <PublicNav />
+      {/* <PublicNav /> */}
       <div className="relative">
         {children}
       </div>

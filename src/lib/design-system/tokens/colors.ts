@@ -1,18 +1,18 @@
 export const colors = {
-  // Brand colors - Green-focused design system
+  // Brand colors - Sophisticated green palette based on logo rgb(46, 99, 82)
   brand: {
     primary: {
-      50: '#f0fdf4',
-      100: '#dcfce7',
-      200: '#bbf7d0',
-      300: '#86efac',
-      400: '#4ade80',
-      500: '#22c55e',
-      600: '#16a34a',
-      700: '#15803d',
-      800: '#166534',
-      900: '#14532d',
-      950: '#052e16',
+      50: '#f2f7f5',
+      100: '#e6efeb',
+      200: '#cce0d8',
+      300: '#b3d1c5',
+      400: '#99c2b2',
+      500: '#80b39f',
+      600: '#66a48c',
+      700: '#4d9579',
+      800: '#338666',
+      900: '#1a7753',
+      950: '#006840',
     },
     secondary: {
       50: '#f8fafb',
@@ -26,27 +26,35 @@ export const colors = {
     }
   },
   
-  // Green color palette variants
+  // Green color palette - Muted, sophisticated greens based on logo
   green: {
-    50: '#f0fdf4',
-    100: '#dcfce7',
-    200: '#bbf7d0',
-    300: '#86efac',
-    400: '#4ade80',
-    500: '#22c55e',
-    600: '#16a34a',
-    700: '#15803d',
-    800: '#166534',
-    900: '#14532d',
-    950: '#052e16',
+    50: '#f2f7f5',
+    100: '#e6efeb',
+    200: '#cce0d8',
+    300: '#b3d1c5',
+    400: '#99c2b2',
+    500: '#80b39f',
+    600: '#66a48c',
+    700: '#4d9579',
+    800: '#338666',
+    900: '#1a7753',
+    950: '#006840',
   },
 
-  // Semantic colors - Green-based system
+  // Logo-specific color
+  logo: {
+    primary: '#2e6352', // rgb(46, 99, 82)
+    light: '#4a7a6b',
+    dark: '#1a4a3a',
+    muted: '#5a8a7a',
+  },
+
+  // Semantic colors - Updated to work with new palette
   semantic: {
     success: {
-      light: '#4ade80',
-      DEFAULT: '#22c55e',
-      dark: '#15803d',
+      light: '#80b39f',
+      DEFAULT: '#4d9579',
+      dark: '#338666',
     },
     warning: {
       light: '#fbbf24',
@@ -59,13 +67,13 @@ export const colors = {
       dark: '#dc2626',
     },
     info: {
-      light: '#86efac',
-      DEFAULT: '#16a34a',
-      dark: '#15803d',
+      light: '#b3d1c5',
+      DEFAULT: '#66a48c',
+      dark: '#4d9579',
     }
   },
   
-  // Neutral colors - Light mode optimized
+  // Neutral colors - Enhanced for better contrast with new greens
   neutral: {
     white: '#ffffff',
     gray: {
@@ -78,6 +86,8 @@ export const colors = {
       500: '#6b7280',
       600: '#4b5563',
       700: '#374151',
+      800: '#1f2937',
+      900: '#111827',
     }
   }
 } as const;

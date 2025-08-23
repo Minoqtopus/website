@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss';
-import { colors, spacing, typography, breakpoints, shadows, borders, gradients, effects } from './src/lib/design-system';
+import { borders, breakpoints, colors, gradients, shadows, spacing, typography } from './src/lib/design-system';
 
 const config: Config = {
   content: [
@@ -30,6 +30,8 @@ const config: Config = {
       fontFamily: {
         sans: typography.fonts.sans,
         mono: typography.fonts.mono,
+        display: ['var(--font-lato)', 'Lato', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        text: ['var(--font-lato)', 'Lato', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
       },
       fontSize: Object.entries(typography.sizes).reduce((acc, [key, value]) => ({
         ...acc,
@@ -120,6 +122,11 @@ const config: Config = {
         'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
         'shimmer': 'shimmer 2s linear infinite',
         'bounce-slow': 'bounce 3s infinite',
+        'gentleFloat': 'gentleFloat 6s ease-in-out infinite',
+        'fadeInUp': 'fadeInUp 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+        'scaleIn': 'scaleIn 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+        'slideInLeft': 'slideInLeft 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+        'slideInRight': 'slideInRight 800ms cubic-bezier(0.25, 0.46, 0.45, 0.94)',
       },
       keyframes: {
         fadeIn: {
@@ -150,6 +157,54 @@ const config: Config = {
           '0%': { transform: 'translateX(-100%)' },
           '100%': { transform: 'translateX(100%)' },
         },
+        gentleFloat: {
+          '0%, 100%': { 
+            transform: 'translateY(0px) translateX(0px) rotate(0deg)' 
+          },
+          '50%': { 
+            transform: 'translateY(-20px) translateX(8px) rotate(1deg)' 
+          }
+        },
+        fadeInUp: {
+          'from': {
+            opacity: '0',
+            transform: 'translateY(30px)'
+          },
+          'to': {
+            opacity: '1',
+            transform: 'translateY(0)'
+          }
+        },
+        scaleIn: {
+          'from': {
+            opacity: '0',
+            transform: 'scale(0.95)'
+          },
+          'to': {
+            opacity: '1',
+            transform: 'scale(1)'
+          }
+        },
+        slideInLeft: {
+          'from': {
+            opacity: '0',
+            transform: 'translateX(-30px)'
+          },
+          'to': {
+            opacity: '1',
+            transform: 'translateX(0)'
+          }
+        },
+        slideInRight: {
+          'from': {
+            opacity: '0',
+            transform: 'translateX(30px)'
+          },
+          'to': {
+            opacity: '1',
+            transform: 'translateX(0)'
+          }
+        }
       },
     },
   },
