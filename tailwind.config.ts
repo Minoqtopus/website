@@ -1,5 +1,4 @@
 import type { Config } from 'tailwindcss';
-import { borders, breakpoints, colors, gradients, shadows, spacing, typography } from './src/lib/design-system';
 
 const config: Config = {
   content: [
@@ -10,95 +9,6 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        // Brand colors
-        primary: colors.brand.primary,
-        secondary: colors.brand.secondary,
-        
-        // Green color palette
-        green: colors.green,
-        
-        // Semantic colors
-        success: colors.semantic.success,
-        warning: colors.semantic.warning,
-        error: colors.semantic.error,
-        info: colors.semantic.info,
-        
-        // Neutral colors
-        gray: colors.neutral.gray,
-      },
-      fontFamily: {
-        sans: typography.fonts.sans,
-        mono: typography.fonts.mono,
-        display: ['var(--font-lato)', 'Lato', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-        text: ['var(--font-lato)', 'Lato', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-      },
-      fontSize: Object.entries(typography.sizes).reduce((acc, [key, value]) => ({
-        ...acc,
-        [key]: [value.size, { lineHeight: value.lineHeight }],
-      }), {}),
-      fontWeight: typography.weights,
-      letterSpacing: typography.letterSpacing,
-      spacing: spacing,
-      screens: breakpoints,
-      boxShadow: shadows,
-      borderRadius: borders.radius,
-      borderWidth: borders.width,
-      backgroundImage: {
-        // Primary gradients
-        'gradient-primary-light': gradients.primary.light,
-        'gradient-primary-medium': gradients.primary.medium,
-        'gradient-primary-dark': gradients.primary.dark,
-        'gradient-primary-intense': gradients.primary.intense,
-        
-        // Brand gradients
-        'gradient-hero': gradients.brand.hero,
-        'gradient-brand-primary': gradients.brand.primary,
-        'gradient-brand-secondary': gradients.brand.secondary,
-        'gradient-brand-accent': gradients.brand.accent,
-        
-        // Semantic gradients
-        'gradient-success': gradients.semantic.success,
-        'gradient-warning': gradients.semantic.warning,
-        'gradient-error': gradients.semantic.error,
-        'gradient-info': gradients.semantic.info,
-        
-        // Directional gradients
-        'gradient-vertical-primary': gradients.vertical.primary,
-        'gradient-vertical-light': gradients.vertical.light,
-        'gradient-vertical-dark': gradients.vertical.dark,
-        'gradient-horizontal-primary': gradients.horizontal.primary,
-        'gradient-horizontal-light': gradients.horizontal.light,
-        'gradient-horizontal-dark': gradients.horizontal.dark,
-        
-        // Radial gradients
-        'gradient-radial-primary': gradients.radial.primary,
-        'gradient-radial-light': gradients.radial.light,
-        'gradient-radial-dark': gradients.radial.dark,
-        'gradient-radial-hero': gradients.radial.hero,
-        
-        // Complex gradients
-        'gradient-nature': gradients.complex.nature,
-        'gradient-forest': gradients.complex.forest,
-        'gradient-meadow': gradients.complex.meadow,
-        'gradient-emerald': gradients.complex.emerald,
-        
-        // Overlay gradients
-        'gradient-overlay-light': gradients.overlay.light,
-        'gradient-overlay-medium': gradients.overlay.medium,
-        'gradient-overlay-dark': gradients.overlay.dark,
-        'gradient-overlay-black': gradients.overlay.black,
-        
-        // Mesh gradients
-        'gradient-mesh-hero': gradients.mesh.hero,
-        'gradient-mesh-vibrant': gradients.mesh.vibrant,
-        'gradient-mesh-subtle': gradients.mesh.subtle,
-        
-        // Animated gradients
-        'gradient-shimmer': gradients.animated.shimmer,
-        'gradient-pulse': gradients.animated.pulse,
-        'gradient-glow': gradients.animated.glow,
-      },
       backdropBlur: {
         xs: '2px',
         sm: '4px',
@@ -206,7 +116,7 @@ const config: Config = {
           }
         }
       },
-    },
+    }
   },
   plugins: [],
 };
