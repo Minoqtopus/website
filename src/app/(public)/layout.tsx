@@ -8,7 +8,9 @@ export default function PublicLayout({
   return (
     <>
       <PublicNav />
-      {children}
+      <div className="relative">
+        {children}
+      </div>
     </>
   );
 }

@@ -16,7 +16,7 @@ export default function Products() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {productsCopy.products.map((product, index) => (
             <div key={index} className="bg-white p-6 rounded-lg shadow-lg border">
-              <h3 className="text-xl font-semibold mb-4 text-blue-600">
+              <h3 className="text-xl font-semibold mb-4 text-green-600">
                 {product.title}
               </h3>
               <p className="text-gray-600 mb-4">

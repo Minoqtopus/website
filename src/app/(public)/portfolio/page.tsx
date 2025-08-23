@@ -2,9 +2,9 @@ import { portfolioCopy } from "@/lib/copy/pages/portfolio";
 
 export default function Portfolio() {
   const techColorMap: Record<string, string> = {
-    "React": "bg-blue-100 text-blue-800",
-    "Node.js": "bg-blue-100 text-blue-800",
-    "Stripe": "bg-blue-100 text-blue-800",
+    "React": "bg-green-100 text-green-800",
+    "Node.js": "bg-green-100 text-green-800",
+    "Stripe": "bg-green-100 text-green-800",
     "Next.js": "bg-green-100 text-green-800",
     "PostgreSQL": "bg-green-100 text-green-800",
     "Chart.js": "bg-green-100 text-green-800",
@@ -30,7 +30,7 @@ export default function Portfolio() {
         
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           {portfolioCopy.projects.map((project, index) => (
-            <div key={index} className="bg-gray-100 rounded-lg p-6">
+            <div key={index} className="bg-gradient-primary-light rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-green-100">
               <div className="bg-gray-300 h-48 rounded-lg mb-4"></div>
               <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
               <p className="text-gray-600 mb-4">
@@ -53,7 +53,7 @@ export default function Portfolio() {
         <div className="text-center">
           <a
             href={portfolioCopy.cta.href}
-            className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+            className="bg-gradient-brand-primary text-white px-8 py-3 rounded-lg hover:bg-gradient-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             {portfolioCopy.cta.text}
           </a>

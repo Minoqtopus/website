@@ -3,10 +3,10 @@ import { colors, typography, spacing, breakpoints, shadows, borders } from '../t
 export const defaultTheme = {
   name: 'default',
   
-  // Color palette
+  // Color palette - Light mode optimized
   colors: {
     background: colors.neutral.white,
-    foreground: colors.neutral.gray[900],
+    foreground: colors.neutral.gray[700],
     
     primary: colors.brand.primary[600],
     primaryHover: colors.brand.primary[700],
@@ -17,8 +17,8 @@ export const defaultTheme = {
     secondaryLight: colors.brand.secondary[100],
     
     border: colors.neutral.gray[200],
-    muted: colors.neutral.gray[100],
-    mutedForeground: colors.neutral.gray[600],
+    muted: colors.neutral.gray[50],
+    mutedForeground: colors.neutral.gray[500],
     
     ...colors.semantic,
   },
@@ -85,19 +85,20 @@ export const defaultTheme = {
         lg: 'px-6 py-3 text-lg rounded-lg',
       },
       variants: {
-        primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
-        secondary: 'border border-blue-600 text-blue-600 hover:bg-blue-50 focus:ring-blue-500',
-        ghost: 'text-gray-700 hover:bg-gray-100 focus:ring-gray-500',
+        primary: 'bg-gradient-brand-primary text-white hover:bg-gradient-primary-dark focus:ring-green-500 shadow-lg hover:shadow-xl',
+        secondary: 'border-2 border-green-600 text-green-600 hover:bg-gradient-primary-light hover:border-green-700 focus:ring-green-500',
+        gradient: 'bg-gradient-primary-medium text-white hover:bg-gradient-primary-intense focus:ring-green-500 shadow-lg hover:shadow-xl',
+        ghost: 'text-gray-600 hover:bg-gray-50 focus:ring-gray-400',
         danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
       },
     },
     card: {
-      base: 'bg-white rounded-lg shadow-md border border-gray-200',
+      base: 'bg-white rounded-lg shadow-sm border border-gray-100',
       padding: 'p-6',
     },
     input: {
-      base: 'w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent',
-      error: 'border-red-500 focus:ring-red-500',
+      base: 'w-full px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white',
+      error: 'border-red-400 focus:ring-red-400',
     },
   },
   
