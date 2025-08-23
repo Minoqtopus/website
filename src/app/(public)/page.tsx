@@ -1,6 +1,7 @@
 "use client";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import Image from "next/image";
+import Script from "next/script";
 
 // Calendar Icon SVG
 const CalendarIcon = () => (
@@ -36,8 +37,38 @@ const LinkedInIcon = () => (
 );
 
 export default function Home() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Minoqtopus Inc.",
+    "url": "https://minoqtopus.com",
+    "logo": "https://minoqtopus.com/images/brand/logo.png",
+    "description": "Transform your startup idea into a production-ready MVP in just 28 days. Expert software development with enterprise-grade security and scalable architecture.",
+    "sameAs": [
+      "https://www.linkedin.com/company/minoqtopus-inc/"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Sales",
+      "url": "https://calendly.com/minoqtous-inc/discovery-call-minoqtopus"
+    },
+    "offers": {
+      "@type": "Offer",
+      "name": "MVP Development",
+      "description": "Build your minimum viable product in 4 weeks",
+      "price": "Contact for pricing",
+      "priceCurrency": "USD"
+    }
+  };
+
   return (
-    <div className="scroll-smooth">
+    <>
+      <Script
+        id="structured-data"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <div className="scroll-smooth">
       {/* Hero Section - Full viewport with perfect centering */}
       <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 via-white to-green-100 relative overflow-hidden">
         {/* Background decorative elements */}
@@ -61,7 +92,7 @@ export default function Home() {
               </ScrollReveal>
 
               <ScrollReveal delay={0.2}>
-                <h1 className="text-6xl sm:text-8xl md:text-10xl lg:text-8xl xl:text-[8rem] font-black mb-10 tracking-tight text-gray-900 leading-[1] font-display">
+                <h1 className="text-6xl sm:text-8xl md:text-10xl lg:text-8xl xl:text-[6.5rem] font-black mb-10 tracking-tight text-gray-900 leading-[1] font-display">
                   Build Your{" "}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-700 via-green-600 to-green-700 relative inline-block">
                     MVP
@@ -74,7 +105,7 @@ export default function Home() {
               <ScrollReveal delay={0.3}>
                 <p className="text-xl sm:text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto mb-12 font-medium leading-relaxed font-text">
                   While traditional development takes 6+ months, we deliver production-ready solutions in{" "}
-                  <span className="text-transparent font-bold">28 days</span>. Faster time-to-market, proven results.
+                  <span className="text-green-700 font-bold">28 days</span>. Faster time-to-market, proven results.
                 </p>
               </ScrollReveal>
             </div>
@@ -120,6 +151,7 @@ export default function Home() {
             </ScrollReveal>
         </main>
       </section>
-    </div>
+      </div>
+    </>
   );
 }
