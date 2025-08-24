@@ -114,7 +114,7 @@ export default function Home() {
             <ScrollReveal delay={0.4}>
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-8 px-4 sm:px-0">
                 <a
-                  href="https://calendly.com/minoqtous-inc/discovery-call-minoqtopus"
+                  href="https://calendly.com/minoqtopus/30min"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative bg-[#1a7753] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-bold hover:bg-green-800 transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 overflow-hidden focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50 font-display inline-flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-center"
@@ -124,7 +124,7 @@ export default function Home() {
                   <span className="relative z-10">Schedule a Call</span>
                 </a>
                 <a
-                  href="https://www.linkedin.com/company/minoqtopus-inc/"
+                  href="https://www.linkedin.com/company/minoqtopus-agency/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-white text-[#0077B5] border-2 border-[#0077B5] px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-bold hover:bg-[#0077B5] hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-4 focus:ring-[#0077B5] focus:ring-opacity-50 font-display inline-flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-center"
