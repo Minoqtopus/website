@@ -1,17 +1,35 @@
 export const homeCopy = {
   hero: {
-    title: "Minoqtopus",
-    tagline: "MVP in Four Weeks",
-    description: "We help businesses transform their ideas into market-ready products in just four weeks. Fast, efficient, and focused on your success.",
+    logoAlt: "Minoqtopus",
+    title: {
+      part1: "Build Your",
+      highlight: "MVP",
+      part2: "in 4 weeks"
+    },
+    subtitle: "While traditional development takes 6+ months, we deliver production-ready solutions in",
+    subtitleHighlight: "28 days",
+    subtitleEnd: ". Faster time-to-market, proven results.",
     cta: {
       primary: {
-        text: "Start Your Project",
-        href: "/contact"
+        text: "Schedule a Call",
+        href: "https://calendly.com/minoqtopus/30min",
+        ariaLabel: "Schedule a call to discuss your MVP project"
       },
       secondary: {
-        text: "View Our Work",
-        href: "/portfolio"
+        text: "LinkedIn",
+        href: "https://www.linkedin.com/company/minoqtopus-agency/",
+        ariaLabel: "Connect with us on LinkedIn"
       }
-    }
+    },
+    trustIndicators: [
+      {
+        id: "security",
+        text: "Enterprise-Grade Security"
+      },
+      {
+        id: "architecture",
+        text: "Scalable Architecture"
+      }
+    ]
   }
 } as const;

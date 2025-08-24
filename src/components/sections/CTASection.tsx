@@ -1,26 +1,27 @@
 "use client";
 
 import { CalendarIcon, LinkedInIcon } from "@/components/icons";
+import { homeCopy } from "@/lib/copy";
 
 import { CTAButton, CTASectionProps } from '@/types';
 
-// Default button configurations
+// Default button configurations from copy
 const defaultPrimaryButton: CTAButton = {
-  href: "https://calendly.com/minoqtopus/30min",
-  label: "Schedule a Call",
-  ariaLabel: "Schedule a call to discuss your MVP project",
+  href: homeCopy.hero.cta.primary.href,
+  label: homeCopy.hero.cta.primary.text,
+  ariaLabel: homeCopy.hero.cta.primary.ariaLabel,
   variant: 'primary',
   icon: 'calendar',
-  text: "Schedule a Call"
+  text: homeCopy.hero.cta.primary.text
 };
 
 const defaultSecondaryButton: CTAButton = {
-  href: "https://www.linkedin.com/company/minoqtopus-agency/",
-  label: "LinkedIn",
-  ariaLabel: "Connect with us on LinkedIn",
+  href: homeCopy.hero.cta.secondary.href,
+  label: homeCopy.hero.cta.secondary.text,
+  ariaLabel: homeCopy.hero.cta.secondary.ariaLabel,
   variant: 'secondary',
   icon: 'linkedin',
-  text: "LinkedIn"
+  text: homeCopy.hero.cta.secondary.text
 };
 
 export function CTASection({ 
