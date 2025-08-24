@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Lato } from "next/font/google";
+import { pageMetadata } from "@/lib/seo";
 import "./globals.css";
 
 const lato = Lato({
@@ -9,61 +10,8 @@ const lato = Lato({
   display: 'swap',
 });
 
-export const metadata: Metadata = {
-  title: "Minoqtopus - Build Your MVP in 4 Weeks | Rapid Software Development",
-  description: "Transform your startup idea into a production-ready MVP in just 28 days. Expert software development with enterprise-grade security, scalable architecture, and proven results. Get to market 6x faster.",
-  keywords: "MVP development, rapid prototyping, startup development, software development, 4 week MVP, minimum viable product, agile development, web application development, mobile app development, SaaS development",
-  authors: [{ name: "Minoqtopus Inc." }],
-  creator: "Minoqtopus Inc.",
-  publisher: "Minoqtopus Inc.",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL('https://minoqtopus.com'),
-  alternates: {
-    canonical: '/',
-  },
-  openGraph: {
-    title: 'Minoqtopus - Build Your MVP in 4 Weeks',
-    description: 'Transform your startup idea into a production-ready MVP in just 28 days. Get to market 6x faster with enterprise-grade security and scalable architecture.',
-    url: 'https://minoqtopus.com',
-    siteName: 'Minoqtopus',
-    images: [
-      {
-        url: '/images/brand/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'Minoqtopus - MVP Development in 4 Weeks',
-      },
-    ],
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Minoqtopus - Build Your MVP in 4 Weeks',
-    description: 'Transform your startup idea into a production-ready MVP in just 28 days. Get to market 6x faster.',
-    images: ['/images/brand/og-image.png'],
-    creator: '@minoqtopus',
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  verification: {
-    google: 'your-google-verification-code',
-    yandex: 'your-yandex-verification-code',
-  },
-};
+// Use enhanced home page metadata
+export const metadata: Metadata = pageMetadata.home();
 
 export default function RootLayout({
   children,
