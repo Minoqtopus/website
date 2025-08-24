@@ -1,14 +1,10 @@
-interface CalendarIconProps {
-  className?: string;
-  width?: number;
-  height?: number;
-}
+import { IconProps } from '@/types';
 
 export function CalendarIcon({ 
   className = "w-5 h-5", 
   width = 20, 
   height = 20 
-}: CalendarIconProps) {
+}: IconProps) {
   return (
     <svg 
       width={width}

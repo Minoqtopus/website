@@ -1,14 +1,10 @@
-interface LinkedInIconProps {
-  className?: string;
-  width?: number;
-  height?: number;
-}
+import { IconProps } from '@/types';
 
 export function LinkedInIcon({ 
   className = "w-5 h-5", 
   width = 20, 
   height = 20 
-}: LinkedInIconProps) {
+}: IconProps) {
   return (
     <svg 
       width={width}

@@ -2,14 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-interface ScrollRevealProps {
-  children: React.ReactNode;
-  className?: string;
-  delay?: number;
-  direction?: 'up' | 'down' | 'left' | 'right' | 'scale' | 'fade';
-  duration?: number;
-  threshold?: number;
-}
+import { ScrollRevealProps } from '@/types';
 
 export function ScrollReveal({ 
   children, 
