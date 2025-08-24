@@ -1,6 +1,6 @@
 "use client";
 
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { ScrollReveal, BackgroundDecorations } from "@/components/ui";
 import { CTASection } from "./CTASection";
 import { homeCopy } from "@/lib/copy";
 import Image from "next/image";
@@ -12,11 +12,7 @@ export function Hero({ className = "" }: HeroProps) {
   return (
     <section className={`min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 via-white to-green-100 relative overflow-hidden py-8 sm:py-12 ${className}`}>
       {/* Background decorative elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-10 sm:top-20 left-5 sm:left-10 w-48 sm:w-72 h-48 sm:h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float"></div>
-        <div className="absolute top-32 sm:top-40 right-5 sm:right-10 w-48 sm:w-72 h-48 sm:h-72 bg-green-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float delay-2000"></div>
-        <div className="absolute -bottom-8 left-1/4 sm:left-1/3 w-48 sm:w-72 h-48 sm:h-72 bg-green-400 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-float delay-4000"></div>
-      </div>
+      <BackgroundDecorations />
 
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="max-w-6xl mx-auto text-center">
