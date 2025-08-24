@@ -2,7 +2,7 @@
 
 import { ScrollReveal, BackgroundDecorations } from "@/components/ui";
 import { CTASection } from "./CTASection";
-import { homeCopy } from "@/lib/copy";
+import { homeCopy } from "@/lib/content";
 import Image from "next/image";
 
 import { HeroProps } from '@/types';

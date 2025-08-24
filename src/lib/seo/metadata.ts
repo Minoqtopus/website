@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { APP_CONFIG } from '@/config';
 
 interface GenerateMetadataParams {
   title?: string;
@@ -8,10 +9,10 @@ interface GenerateMetadataParams {
   image?: string;
 }
 
-const DEFAULT_TITLE = "Minoqtopus - Build Your MVP in 4 Weeks | Rapid Software Development";
+const DEFAULT_TITLE = `${APP_CONFIG.name} - Build Your MVP in 4 Weeks | Rapid Software Development`;
 const DEFAULT_DESCRIPTION = "Transform your startup idea into a production-ready MVP in just 28 days. Expert software development with enterprise-grade security, scalable architecture, and proven results. Get to market 6x faster.";
 const DEFAULT_KEYWORDS = "MVP development, rapid prototyping, startup development, software development, 4 week MVP, minimum viable product, agile development, web application development, mobile app development, SaaS development";
-const BASE_URL = "https://minoqtopus.com";
+const BASE_URL = APP_CONFIG.url;
 
 export function generateMetadata({
   title = DEFAULT_TITLE,

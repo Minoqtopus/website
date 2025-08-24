@@ -1,13 +1,14 @@
 "use client";
 
 import { CalendarIcon, LinkedInIcon } from "@/components/icons";
-import { homeCopy } from "@/lib/copy";
+import { homeCopy } from "@/lib/content";
+import { APP_CONFIG } from "@/config";
 
 import { CTAButton, CTASectionProps } from '@/types';
 
-// Default button configurations from copy
+// Default button configurations from content and config
 const defaultPrimaryButton: CTAButton = {
-  href: homeCopy.hero.cta.primary.href,
+  href: APP_CONFIG.calendlyUrl,
   label: homeCopy.hero.cta.primary.text,
   ariaLabel: homeCopy.hero.cta.primary.ariaLabel,
   variant: 'primary',
@@ -16,7 +17,7 @@ const defaultPrimaryButton: CTAButton = {
 };
 
 const defaultSecondaryButton: CTAButton = {
-  href: homeCopy.hero.cta.secondary.href,
+  href: APP_CONFIG.linkedinUrl,
   label: homeCopy.hero.cta.secondary.text,
   ariaLabel: homeCopy.hero.cta.secondary.ariaLabel,
   variant: 'secondary',

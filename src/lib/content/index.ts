@@ -1,2 +1,2 @@
-// Copy/Content Exports
+// Content Exports
 export { homeCopy } from './pages/home';
