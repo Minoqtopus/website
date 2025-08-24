@@ -21,7 +21,7 @@ export function ComingSoon() {
 
           <ScrollReveal delay={0.2}>
             <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto mb-8 font-medium leading-relaxed">
-              We're crafting something special for you.{" "}
+              We&apos;re crafting something special for you.{" "}
               <span className="text-green-700 font-bold">Premium digital solutions</span>{" "}
               that will transform how you work and live.
             </p>
