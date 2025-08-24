@@ -6,7 +6,6 @@ export default function PublicLayout({
 }) {
   return (
     <>
-      {/* <PublicNav /> */}
       <div className="relative">
         {children}
       </div>
