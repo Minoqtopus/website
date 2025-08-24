@@ -18,7 +18,7 @@ const DefaultErrorFallback = ({ error, reset }: { error: Error; reset: () => voi
       <div className="mb-4">
         <h2 className="text-2xl font-bold text-gray-900 mb-2">Something went wrong</h2>
         <p className="text-gray-600 mb-4">
-          We're sorry, but something unexpected happened. Please try again.
+          We&apos;re sorry, but something unexpected happened. Please try again.
         </p>
         {process.env.NODE_ENV === 'development' && (
           <details className="text-left bg-gray-100 p-3 rounded text-sm mb-4">
