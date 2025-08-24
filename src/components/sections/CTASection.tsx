@@ -17,12 +17,12 @@ const defaultPrimaryButton: CTAButton = {
 };
 
 const defaultSecondaryButton: CTAButton = {
-  href: APP_CONFIG.linkedinUrl,
-  label: homeCopy.hero.cta.secondary.text,
-  ariaLabel: homeCopy.hero.cta.secondary.ariaLabel,
+  href: APP_CONFIG.upworkUrl,
+  label: "Hire on Upwork",
+  ariaLabel: "Hire us on Upwork platform",
   variant: 'secondary',
-  icon: 'linkedin',
-  text: homeCopy.hero.cta.secondary.text
+  icon: 'upwork',
+  text: "Hire on Upwork"
 };
 
 export function CTASection({ 
@@ -37,6 +37,8 @@ export function CTASection({
         return <CalendarIcon />;
       case 'linkedin':
         return <LinkedInIcon />;
+      case 'upwork':
+        return null; // No icon for now, could add Upwork icon later
       default:
         return null;
     }
@@ -67,19 +69,19 @@ export function CTASection({
         rel="noopener noreferrer"
         className="bg-white border-2 px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-bold hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-4 focus:ring-opacity-50 font-display inline-flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-center"
         style={{ 
-          color: 'var(--color-linkedin)',
-          borderColor: 'var(--color-linkedin)'
+          color: 'var(--color-primary)',
+          borderColor: 'var(--color-primary)'
         }}
         onMouseEnter={(e) => {
-          e.currentTarget.style.backgroundColor = 'var(--color-linkedin)';
+          e.currentTarget.style.backgroundColor = 'var(--color-primary)';
           e.currentTarget.style.color = 'white';
         }}
         onMouseLeave={(e) => {
           e.currentTarget.style.backgroundColor = 'white';
-          e.currentTarget.style.color = 'var(--color-linkedin)';
+          e.currentTarget.style.color = 'var(--color-primary)';
         }}
         onFocus={(e) => {
-          e.currentTarget.style.outlineColor = 'var(--color-linkedin)';
+          e.currentTarget.style.outlineColor = 'var(--color-primary)';
         }}
         aria-label={button.ariaLabel}
       >

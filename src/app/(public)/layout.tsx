@@ -1,4 +1,6 @@
 
+import { Header } from '@/components/navigation';
+
 export default function PublicLayout({
   children,
 }: {
@@ -6,6 +8,7 @@ export default function PublicLayout({
 }) {
   return (
     <>
+      <Header />
       <div className="relative">
         {children}
       </div>

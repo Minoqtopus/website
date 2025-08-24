@@ -1,0 +1,141 @@
+"use client";
+
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { APP_CONFIG } from '@/config';
+
+export function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled 
+          ? 'bg-white/80 backdrop-blur-xl border-b border-black/5 shadow-lg shadow-black/5' 
+          : 'bg-transparent'
+      }`}
+    >
+      <nav className="container mx-auto px-6 lg:px-8">
+        <div className="grid grid-cols-3 items-center h-20 w-full">
+          {/* Left: Logo */}
+          <div className="flex justify-start">
+            <Link href="/" className="flex items-center group">
+              <Image
+                src="/images/brand/logo.png"
+                alt={APP_CONFIG.name}
+                width={180}
+                height={54}
+                className="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                priority
+              />
+            </Link>
+          </div>
+
+          {/* Center: Navigation */}
+          <div className="hidden md:flex items-center justify-center">
+            {APP_CONFIG.navigation.main.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="group relative px-8 py-4 text-gray-800 font-semibold text-[16px] tracking-wide transition-all duration-300 rounded-xl hover:scale-105 before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-r before:from-green-600 before:to-green-700 before:opacity-0 hover:before:opacity-100 before:transition-all before:duration-300 before:-z-10 hover:shadow-lg hover:shadow-green-600/25"
+              >
+                <span className="relative z-10 group-hover:text-white transition-colors duration-300">{item.label}</span>
+              </Link>
+            ))}
+          </div>
+
+          {/* Right: CTA Button & Mobile Menu */}
+          <div className="flex items-center justify-end space-x-6">
+            {/* Desktop CTA */}
+            <a
+              href={APP_CONFIG.navigation.cta.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:inline-flex items-center px-6 py-3 rounded-xl text-white font-semibold text-[15px] tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-green-700/25"
+              style={{ 
+                backgroundColor: 'var(--color-primary)',
+                background: 'linear-gradient(135deg, var(--color-primary) 0%, #0f5132 100%)'
+              }}
+            >
+              {APP_CONFIG.navigation.cta.label}
+            </a>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden p-3 rounded-full hover:bg-black/5 transition-all duration-300 group"
+              aria-label="Toggle mobile menu"
+            >
+              <div className="w-6 h-6 relative">
+                <span
+                  className={`absolute w-6 h-0.5 bg-gray-800 transform transition-all duration-300 ${
+                    isMobileMenuOpen ? 'rotate-45 top-[11px]' : 'top-1.5'
+                  }`}
+                />
+                <span
+                  className={`absolute w-6 h-0.5 bg-gray-800 top-[11px] transition-all duration-300 ${
+                    isMobileMenuOpen ? 'opacity-0 scale-75' : 'opacity-100'
+                  }`}
+                />
+                <span
+                  className={`absolute w-6 h-0.5 bg-gray-800 transform transition-all duration-300 ${
+                    isMobileMenuOpen ? '-rotate-45 top-[11px]' : 'top-[19px]'
+                  }`}
+                />
+              </div>
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu Dropdown */}
+        <div className={`md:hidden transition-all duration-300 overflow-hidden ${
+          isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        }`}>
+          <div className="border-t border-black/10 bg-white/95 backdrop-blur-xl rounded-b-2xl mx-[-24px] mt-4">
+            <div className="py-6 px-6 space-y-2">
+              {APP_CONFIG.navigation.main.map((item, index) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="block px-4 py-4 text-gray-800 hover:text-green-700 hover:bg-green-50/80 rounded-xl font-medium text-[16px] transition-all duration-300 transform hover:translate-x-1"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  style={{ animationDelay: `${index * 50}ms` }}
+                >
+                  {item.label}
+                </Link>
+              ))}
+              
+              {/* Mobile CTA */}
+              <div className="pt-4">
+                <a
+                  href={APP_CONFIG.navigation.cta.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-center px-6 py-4 rounded-xl text-white font-semibold text-[16px] transition-all duration-300 hover:scale-105"
+                  style={{ 
+                    backgroundColor: 'var(--color-primary)',
+                    background: 'linear-gradient(135deg, var(--color-primary) 0%, #0f5132 100%)'
+                  }}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {APP_CONFIG.navigation.cta.label}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+  );
+}

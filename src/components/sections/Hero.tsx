@@ -10,7 +10,7 @@ import { HeroProps } from '@/types';
 export function Hero({ className = "" }: HeroProps) {
   const { hero } = homeCopy;
   return (
-    <section className={`min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 via-white to-green-100 relative overflow-hidden py-8 sm:py-12 ${className}`}>
+    <section className={`min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 via-white to-green-100 relative overflow-hidden pt-20 pb-8 sm:pb-12 ${className}`}>
       {/* Background decorative elements */}
       <BackgroundDecorations />
 
