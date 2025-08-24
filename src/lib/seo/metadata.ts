@@ -80,58 +80,11 @@ export function generateMetadata({
   };
 }
 
-// Enhanced page-specific metadata generators
+// Page-specific metadata generators (only home page needed for landing page)
 export const pageMetadata = {
   home: () => generateMetadata({
     keywords: `${DEFAULT_KEYWORDS}, startup launch, tech startup, software agency, rapid development, product development, minimum viable product development, startup consulting`
   }),
   
-  about: () => generateMetadata({
-    title: "About Minoqtopus - Expert MVP Development Team | 4-Week Launch Specialists",
-    description: "Meet the Minoqtopus team of expert developers, designers, and strategists. 50+ successful MVP launches, 95% client satisfaction rate, and proven 4-week delivery methodology.",
-    keywords: "MVP development team, startup developers, software development company, agile development team, experienced developers, startup consultants, tech team",
-    path: "/about"
-  }),
-  
-  services: () => generateMetadata({
-    title: "MVP Development Services - Web, Mobile & SaaS | 4-Week Delivery Guarantee",
-    description: "Complete MVP development services: Web applications, mobile apps, SaaS platforms, API development, UI/UX design. Fixed timeline, transparent pricing, enterprise security.",
-    keywords: "MVP development services, web app development, mobile app development, SaaS development, API development, startup services, custom software development",
-    path: "/services"
-  }),
-  
-  portfolio: () => generateMetadata({
-    title: "Portfolio - 50+ Successful MVP Launches & Client Success Stories",
-    description: "Explore our portfolio of successful MVP launches across fintech, healthcare, e-commerce, and SaaS. Real case studies, client testimonials, and launch metrics.",
-    keywords: "MVP portfolio, startup success stories, client case studies, successful launches, MVP examples, startup portfolio, development case studies",
-    path: "/portfolio"
-  }),
-  
-  contact: () => generateMetadata({
-    title: "Get Started - Free MVP Consultation & Quote | Minoqtopus",
-    description: "Ready to build your MVP in 4 weeks? Book a free consultation, get a detailed quote, and discover how we can launch your startup idea fast.",
-    keywords: "MVP consultation, startup consultation, free quote, get started, contact developers, hire MVP team, startup development quote",
-    path: "/contact"
-  }),
-
-  // Blog and content pages
-  blog: (slug?: string, title?: string, description?: string) => generateMetadata({
-    title: title ? `${title} | Minoqtopus Blog` : "Startup Development Blog - MVP Insights & Best Practices",
-    description: description || "Expert insights on MVP development, startup strategies, tech trends, and product launch best practices from the Minoqtopus team.",
-    keywords: "startup blog, MVP development insights, startup advice, product development blog, tech startup blog, development best practices",
-    path: slug ? `/blog/${slug}` : "/blog"
-  }),
-
-  // Legal pages
-  privacy: () => generateMetadata({
-    title: "Privacy Policy | Minoqtopus",
-    description: "Minoqtopus privacy policy - How we collect, use, and protect your personal information and project data.",
-    path: "/privacy"
-  }),
-
-  terms: () => generateMetadata({
-    title: "Terms of Service | Minoqtopus",
-    description: "Minoqtopus terms of service - Service agreements, project terms, and conditions for MVP development services.",
-    path: "/terms"
-  })
+  // Additional page metadata generators can be added here when expanding to multi-page site
 };

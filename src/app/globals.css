@@ -68,58 +68,7 @@ body {
 
 /* Apple-level animations - unique ones not in Tailwind config */
 
-/* Enhanced hero animations */
-@keyframes floatAndGlow {
-  0%, 100% { 
-    transform: translateY(0px) translateX(0px) rotate(0deg);
-    filter: drop-shadow(0 0 20px rgba(34, 197, 94, 0.3));
-  }
-  50% { 
-    transform: translateY(-25px) translateX(10px) rotate(2deg);
-    filter: drop-shadow(0 0 30px rgba(34, 197, 94, 0.6));
-  }
-}
-
-@keyframes pulseGlow {
-  0%, 100% {
-    opacity: 0.6;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.1);
-  }
-}
-
-
-@keyframes rotateSlow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes bounceGentle {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
+/* Only keep animations that are actually used */
 
 /* Smooth scrolling */
 html {
@@ -182,49 +131,6 @@ html {
   }
 }
 
-/* Hero section specific enhancements */
-.hero-glow {
-  animation: floatAndGlow 8s ease-in-out infinite;
-}
-
-.hero-pulse {
-  animation: pulseGlow 3s ease-in-out infinite;
-}
-
-.hero-shimmer {
-  animation: shimmer 4s ease-in-out infinite;
-}
-
-.hero-rotate {
-  animation: rotateSlow 20s linear infinite;
-}
-
-.hero-bounce {
-  animation: bounceGentle 4s ease-in-out infinite;
-}
-
-.hero-fade-in {
-  animation: fadeInScale 1.5s ease-out;
-}
-
-/* Glassmorphism effects */
-.glass-light {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.glass-medium {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-}
-
-.glass-strong {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
 
 .text-transparent {
   color: rgb(26, 103, 75) !important;

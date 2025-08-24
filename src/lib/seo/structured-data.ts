@@ -25,40 +25,4 @@ export const getOrganizationStructuredData = (): StructuredData => ({
   }
 });
 
-// Service structured data
-export const getServiceStructuredData = (service: {
-  name: string;
-  description: string;
-  provider?: string;
-}) => ({
-  "@context": "https://schema.org",
-  "@type": "Service",
-  "name": service.name,
-  "description": service.description,
-  "provider": {
-    "@type": "Organization",
-    "name": service.provider || "Minoqtopus Inc."
-  }
-});
-
-// Product structured data
-export const getProductStructuredData = (product: {
-  name: string;
-  description: string;
-  image?: string;
-  offers?: {
-    price: string;
-    priceCurrency: string;
-  };
-}) => ({
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": product.name,
-  "description": product.description,
-  "image": product.image,
-  "offers": product.offers ? {
-    "@type": "Offer",
-    "price": product.offers.price,
-    "priceCurrency": product.offers.priceCurrency
-  } : undefined
-});
+// Additional structured data functions can be added here when needed for other pages
