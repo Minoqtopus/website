@@ -18,7 +18,7 @@ export interface CTAButton {
   label: string;
   ariaLabel: string;
   variant: 'primary' | 'secondary';
-  icon?: 'calendar' | 'linkedin' | 'email' | 'phone';
+  icon?: 'calendar' | 'linkedin' | 'email' | 'phone' | 'upwork';
   text: string;
   target?: '_blank' | '_self' | '_parent' | '_top';
 }
