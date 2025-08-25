@@ -1,7 +1,7 @@
-import { ProductsCTA, ProductsHero, ProductsShowcase } from "@/components/sections";
-import { ComingSoon } from "@/components/sections/ComingSoon";
+import { PageCTA, PageHero, ProductsShowcase, ComingSoon } from "@/components/sections";
 import { generateMetadata } from "@/lib/seo";
 import { PRODUCTS_LIVE } from "@/config/app";
+import { productsCopy } from "@/lib/content/pages/products";
 import { Metadata } from "next";
 
 export const metadata: Metadata = generateMetadata({
@@ -15,15 +15,17 @@ export const metadata: Metadata = generateMetadata({
 });
 
 export default function ProductsPage() {
+  const { hero, cta } = productsCopy;
+  
   if (!PRODUCTS_LIVE) {
     return <ComingSoon />;
   }
 
   return (
     <div className="scroll-smooth">
-      <ProductsHero />
+      <PageHero {...hero} />
       <ProductsShowcase />
-      <ProductsCTA />
+      <PageCTA {...cta} />
     </div>
   );
 }

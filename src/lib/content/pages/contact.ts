@@ -112,12 +112,12 @@ export const contactCopy = {
       {
         id: "technologies",
         question: "What technologies do you work with?",
-        answer: "We build full-stack applications using modern technologies: React, Next.js, TypeScript, Node.js, and Nest.js for web development; Flutter for mobile apps; MongoDB, PostgreSQL, and MySQL for databases.\n\nWe excel at third-party integrations (Stripe, Slack, HubSpot, etc.) and workflow automations (n8n, custom solutions)."
+        answer: "We build full-stack applications using modern technologies: TypeScript (React, Next.js, Node.js, Nest.js), Python (Flask, FastAPI) for web development; Dart (Flutter), Kotlin (Jetpack Compose) for mobile apps; MongoDB, PostgreSQL, and MySQL for databases.\n\nWe excel at third-party integrations (Stripe, Slack, HubSpot, etc.) and workflow automations (n8n, custom solutions)."
       },
       {
         id: "mobile",
         question: "Do you build mobile apps too?",
-        answer: "Yes! We build cross-platform mobile applications using Flutter. We can create iOS and Android apps that integrate seamlessly with your web platform and share the same backend infrastructure."
+        answer: "Yes! We build mobile applications using Flutter for cross-platform development and Jetpack Compose for native Android apps. We can create iOS and Android apps that integrate seamlessly with your web platform and share the same backend infrastructure."
       },
       {
         id: "integrations",
@@ -137,9 +137,28 @@ export const contactCopy = {
     ]
   },
   cta: {
-    title: "Still Have Questions?",
-    subtitle: "Don't hesitate to reach out. We're here to build your next software product with the integrations you need.",
-    email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@minoqtopus.com",
-    linkedinText: "Connect on LinkedIn"
+    title: {
+      part1: "Still Have",
+      highlight: "Questions",
+      part2: "?"
+    },
+    subtitle: "Don't hesitate to reach out. We're here to build your next software product with",
+    subtitleHighlight: " the automations and integrations",
+    subtitleEnd: " you need.",
+    primary: {
+      text: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@minoqtopus.com",
+      href: `mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@minoqtopus.com"}`,
+      ariaLabel: "Send us an email"
+    },
+    secondary: {
+      text: "Connect on LinkedIn",
+      href: "", // Will use APP_CONFIG.linkedinUrl
+      ariaLabel: "Connect with us on LinkedIn"
+    },
+    trustIndicators: [
+      { id: "response", text: "Quick Response" },
+      { id: "consultation", text: "Free Consultation" },
+      { id: "confidential", text: "100% Confidential" }
+    ]
   }
 } as const;

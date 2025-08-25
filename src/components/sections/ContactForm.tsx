@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { ScrollReveal } from "@/components/ui";
+import { ScrollReveal, CustomDropdown, CustomInput, CustomTextarea } from "@/components/ui";
 import { contactCopy } from "@/lib/content/pages/contact";
 
 export function ContactForm() {
@@ -46,6 +46,13 @@ export function ContactForm() {
     });
   };
 
+  const handleDropdownChange = (name: string, value: string) => {
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
+
   return (
     <section id="contact-form" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -69,15 +76,14 @@ export function ContactForm() {
                   <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
                     {form.fields.name.label}
                   </label>
-                  <input
-                    type="text"
+                  <CustomInput
                     id="name"
                     name="name"
+                    type="text"
                     value={formData.name}
                     onChange={handleChange}
                     placeholder={form.fields.name.placeholder}
                     required={form.fields.name.required}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-green-600 focus:ring-2 focus:ring-green-200 transition-all duration-300 outline-none"
                   />
                 </div>
 
@@ -86,15 +92,14 @@ export function ContactForm() {
                   <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
                     {form.fields.email.label}
                   </label>
-                  <input
-                    type="email"
+                  <CustomInput
                     id="email"
                     name="email"
+                    type="email"
                     value={formData.email}
                     onChange={handleChange}
                     placeholder={form.fields.email.placeholder}
                     required={form.fields.email.required}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-green-600 focus:ring-2 focus:ring-green-200 transition-all duration-300 outline-none"
                   />
                 </div>
 
@@ -103,15 +108,14 @@ export function ContactForm() {
                   <label htmlFor="company" className="block text-sm font-semibold text-gray-700 mb-2">
                     {form.fields.company.label}
                   </label>
-                  <input
-                    type="text"
+                  <CustomInput
                     id="company"
                     name="company"
+                    type="text"
                     value={formData.company}
                     onChange={handleChange}
                     placeholder={form.fields.company.placeholder}
                     required={form.fields.company.required}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-green-600 focus:ring-2 focus:ring-green-200 transition-all duration-300 outline-none"
                   />
                 </div>
 
@@ -120,21 +124,15 @@ export function ContactForm() {
                   <label htmlFor="projectType" className="block text-sm font-semibold text-gray-700 mb-2">
                     {form.fields.projectType.label}
                   </label>
-                  <select
+                  <CustomDropdown
                     id="projectType"
                     name="projectType"
                     value={formData.projectType}
-                    onChange={handleChange}
+                    onChange={(value) => handleDropdownChange('projectType', value)}
+                    placeholder={form.fields.projectType.placeholder}
+                    options={form.fields.projectType.options}
                     required={form.fields.projectType.required}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-green-600 focus:ring-2 focus:ring-green-200 transition-all duration-300 outline-none"
-                  >
-                    <option value="">{form.fields.projectType.placeholder}</option>
-                    {form.fields.projectType.options.map((option) => (
-                      <option key={option} value={option}>
-                        {option}
-                      </option>
-                    ))}
-                  </select>
+                  />
                 </div>
 
                 {/* Budget Field */}
@@ -142,21 +140,15 @@ export function ContactForm() {
                   <label htmlFor="budget" className="block text-sm font-semibold text-gray-700 mb-2">
                     {form.fields.budget.label}
                   </label>
-                  <select
+                  <CustomDropdown
                     id="budget"
                     name="budget"
                     value={formData.budget}
-                    onChange={handleChange}
+                    onChange={(value) => handleDropdownChange('budget', value)}
+                    placeholder={form.fields.budget.placeholder}
+                    options={form.fields.budget.options}
                     required={form.fields.budget.required}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-green-600 focus:ring-2 focus:ring-green-200 transition-all duration-300 outline-none"
-                  >
-                    <option value="">{form.fields.budget.placeholder}</option>
-                    {form.fields.budget.options.map((option) => (
-                      <option key={option} value={option}>
-                        {option}
-                      </option>
-                    ))}
-                  </select>
+                  />
                 </div>
               </div>
 
@@ -165,7 +157,7 @@ export function ContactForm() {
                 <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
                   {form.fields.message.label}
                 </label>
-                <textarea
+                <CustomTextarea
                   id="message"
                   name="message"
                   value={formData.message}
@@ -173,7 +165,6 @@ export function ContactForm() {
                   placeholder={form.fields.message.placeholder}
                   required={form.fields.message.required}
                   rows={6}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-green-600 focus:ring-2 focus:ring-green-200 transition-all duration-300 outline-none resize-none"
                 />
               </div>
 

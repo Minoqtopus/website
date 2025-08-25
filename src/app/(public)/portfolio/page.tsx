@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { generateMetadata } from "@/lib/seo";
-import { PortfolioHero, PortfolioShowcase, PortfolioCTA } from "@/components/sections";
+import { PageHero, PortfolioShowcase, PageCTA } from "@/components/sections";
+import { portfolioCopy } from "@/lib/content/pages/portfolio";
 
 export const metadata: Metadata = generateMetadata({
   title: "Portfolio - Minoqtopus | Custom Software Projects",
@@ -9,11 +10,13 @@ export const metadata: Metadata = generateMetadata({
 });
 
 export default function PortfolioPage() {
+  const { hero, cta } = portfolioCopy;
+  
   return (
     <div className="scroll-smooth">
-      <PortfolioHero />
+      <PageHero {...hero} />
       <PortfolioShowcase />
-      <PortfolioCTA />
+      <PageCTA {...cta} />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { Hero } from "@/components/sections";
+import { LandingHero } from "@/components/sections";
 import { getOrganizationStructuredData } from "@/lib/seo";
 import Script from "next/script";
 
@@ -15,7 +15,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <div className="scroll-smooth">
-        <Hero />
+        <LandingHero />
       </div>
     </>
   );

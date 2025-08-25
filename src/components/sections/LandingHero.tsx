@@ -1,13 +1,13 @@
 "use client";
 
 import { ScrollReveal, BackgroundDecorations } from "@/components/ui";
-import { CTASection } from "./CTASection";
+import { LandingCTA } from "./LandingCTA";
 import { homeCopy } from "@/lib/content";
 import Image from "next/image";
 
 import { HeroProps } from '@/types';
 
-export function Hero({ className = "" }: HeroProps) {
+export function LandingHero({ className = "" }: HeroProps) {
   const { hero } = homeCopy;
   return (
     <section className={`min-h-screen flex items-center justify-center bg-gradient-to-br from-green-50 via-white to-green-100 relative overflow-hidden pt-20 pb-8 sm:pb-12 ${className}`}>
@@ -51,7 +51,7 @@ export function Hero({ className = "" }: HeroProps) {
 
         {/* CTA Section */}
         <ScrollReveal delay={0.4}>
-          <CTASection />
+          <LandingCTA />
         </ScrollReveal>
 
         {/* Trust indicators */}

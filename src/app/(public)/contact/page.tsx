@@ -1,10 +1,7 @@
 import { Metadata } from "next";
 import { generateMetadata } from "@/lib/seo";
-import { ContactHero } from "@/components/sections/ContactHero";
-import { ContactMethods } from "@/components/sections/ContactMethods";
-import { ContactForm } from "@/components/sections/ContactForm";
-import { ContactFAQ } from "@/components/sections/ContactFAQ";
-import { ContactCTA } from "@/components/sections/ContactCTA";
+import { PageHero, ContactMethods, ContactForm, ContactFAQ, PageCTA } from "@/components/sections";
+import { contactCopy } from "@/lib/content/pages/contact";
 
 export const metadata: Metadata = generateMetadata({
   title: "Contact - Minoqtopus | Custom Software & Integrations",
@@ -13,13 +10,15 @@ export const metadata: Metadata = generateMetadata({
 });
 
 export default function ContactPage() {
+  const { hero, cta } = contactCopy;
+  
   return (
     <div className="scroll-smooth">
-      <ContactHero />
+      <PageHero {...hero} />
       <ContactMethods />
       <ContactForm />
       <ContactFAQ />
-      <ContactCTA />
+      <PageCTA {...cta} />
     </div>
   );
 }

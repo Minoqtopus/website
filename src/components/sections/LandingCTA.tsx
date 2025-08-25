@@ -25,7 +25,7 @@ const defaultSecondaryButton: CTAButton = {
   text: "Hire on Upwork"
 };
 
-export function CTASection({ 
+export function LandingCTA({ 
   primaryButton = defaultPrimaryButton,
   secondaryButton = defaultSecondaryButton,
   className = ""
