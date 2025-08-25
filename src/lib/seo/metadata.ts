@@ -9,9 +9,9 @@ interface GenerateMetadataParams {
   image?: string;
 }
 
-const DEFAULT_TITLE = `${APP_CONFIG.name} - Build Your MVP in 4 Weeks | Rapid Software Development`;
-const DEFAULT_DESCRIPTION = "Transform your startup idea into a production-ready MVP in just 28 days. Expert software development with enterprise-grade security, scalable architecture, and proven results. Get to market 6x faster.";
-const DEFAULT_KEYWORDS = "MVP development, rapid prototyping, startup development, software development, 4 week MVP, minimum viable product, agile development, web application development, mobile app development, SaaS development";
+const DEFAULT_TITLE = `${APP_CONFIG.name} - Custom Software Development & Integrations | Ship in Weeks`;
+const DEFAULT_DESCRIPTION = "Full-lifecycle software development for funded startups and SMBs. We build custom applications with third-party integrations and workflow automations. Ship production software in weeks, not months.";
+const DEFAULT_KEYWORDS = "custom software development, API integrations, workflow automation, startup development, SMB software, third-party integrations, data pipelines, full-stack development, SaaS development, production software";
 const BASE_URL = APP_CONFIG.url;
 
 export function generateMetadata({

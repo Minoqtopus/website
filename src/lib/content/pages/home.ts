@@ -2,18 +2,18 @@ export const homeCopy = {
   hero: {
     logoAlt: "Minoqtopus",
     title: {
-      part1: "Build Your",
-      highlight: "MVP",
-      part2: "in 4 weeks"
+      part1: "Ship",
+      highlight: "Production Software",
+      part2: "in Weeks"
     },
-    subtitle: "While traditional development takes 6+ months, we deliver production-ready solutions in",
-    subtitleHighlight: "28 days",
-    subtitleEnd: ". Faster time-to-market, proven results.",
+    subtitle: "We build custom software that integrates with your stack and automates your workflows. Full-lifecycle development delivered in",
+    subtitleHighlight: "weeks, not months",
+    subtitleEnd: ". For funded startups and growing businesses.",
     cta: {
       primary: {
         text: "Schedule a Call",
         href: "https://calendly.com/minoqtopus/30min",
-        ariaLabel: "Schedule a call to discuss your MVP project"
+        ariaLabel: "Schedule a call to discuss your project"
       },
       secondary: {
         text: "LinkedIn",
@@ -23,12 +23,12 @@ export const homeCopy = {
     },
     trustIndicators: [
       {
-        id: "security",
-        text: "Enterprise-Grade Security"
+        id: "integrations",
+        text: "Third-Party Integrations"
       },
       {
-        id: "architecture",
-        text: "Scalable Architecture"
+        id: "automations",
+        text: "Workflow Automations"
       }
     ]
   }

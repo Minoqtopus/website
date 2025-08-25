@@ -63,7 +63,7 @@ export function ContactFAQ() {
                     openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                   }`}
                 >
-                  <div className="px-6 py-4 text-gray-600 leading-relaxed">
+                  <div className="px-6 py-4 text-gray-600 leading-relaxed whitespace-pre-line">
                     {item.answer}
                   </div>
                 </div>

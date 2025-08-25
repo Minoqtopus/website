@@ -6,11 +6,11 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = generateMetadata({
   title: PRODUCTS_LIVE 
-    ? "Products - Minoqtopus | Digital Solutions & Templates"
-    : "Products Coming Soon - Minoqtopus",
+    ? "Solutions We Build - Minoqtopus | Custom Software Examples"
+    : "Solutions Coming Soon - Minoqtopus",
   description: PRODUCTS_LIVE
-    ? "Discover our collection of premium software tools, templates, and digital solutions. From project management to Notion templates - we build tools that work."
-    : "Amazing digital products are coming soon. Premium solutions crafted with care, built by developers for everyone.",
+    ? "Examples of custom software solutions we build: SaaS platforms, automation tools, and integrated systems. Tailored to your business needs with full API integrations."
+    : "Custom software solution examples coming soon. See the types of products we build for funded startups and SMBs.",
   path: "/products"
 });
 

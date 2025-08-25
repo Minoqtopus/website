@@ -4,13 +4,13 @@ export const contactCopy = {
       part1: "Let's",
       highlight: "Connect"
     },
-    subtitle: "Ready to start your next project or have questions?",
-    subtitleHighlight: " We're here to help",
-    subtitleEnd: " turn your ideas into reality.",
+    subtitle: "Ready to build custom software with seamless integrations?",
+    subtitleHighlight: " Let's discuss your project",
+    subtitleEnd: " and ship it in weeks.",
     trustIndicators: [
-      { id: "response", text: "24-hour response time" },
-      { id: "consultation", text: "Free consultation" },
-      { id: "secure", text: "100% confidential" }
+      { id: "response", text: "Quick Response" },
+      { id: "consultation", text: "Free Consultation" },
+      { id: "obligations", text: "No Obligations" }
     ]
   },
   methods: {
@@ -29,8 +29,8 @@ export const contactCopy = {
       },
       {
         id: "custom-development",
-        title: "Enterprise Solutions",
-        description: "For complex projects requiring detailed consultation",
+        title: "Custom Development",
+        description: "Full-lifecycle software with integrations and automations",
         action: "Schedule Call",
         actionType: "external", 
         url: "", // Will use APP_CONFIG.calendlyUrl
@@ -70,10 +70,11 @@ export const contactCopy = {
         placeholder: "Select project type",
         required: true,
         options: [
-          "Custom Development",
-          "Product Support",
+          "Custom Software Development",
+          "API Integrations",
+          "Workflow Automation",
+          "Full-Stack Application",
           "Partnership",
-          "General Inquiry",
           "Other"
         ]
       },
@@ -106,33 +107,38 @@ export const contactCopy = {
       {
         id: "timeline",
         question: "How quickly can you start on my project?",
-        answer: "We can typically start within 3-5 business days for most projects. For urgent needs, we offer expedited timelines. Our MVP development process delivers working solutions in 28 days."
-      },
-      {
-        id: "pricing",
-        question: "How do you handle pricing?",
-        answer: "For quick projects, we work through Upwork with transparent hourly pricing. For larger engagements, we provide detailed project quotes after understanding your requirements."
-      },
-      {
-        id: "support",
-        question: "Do you provide ongoing support?",
-        answer: "Yes! We offer various support packages ranging from basic maintenance to full ongoing development. All projects include a warranty period with free bug fixes."
+        answer: "We can typically start within 3-5 business days for most projects. For urgent needs, we offer expedited timelines. We deliver production software in weeks, not months."
       },
       {
         id: "technologies",
         question: "What technologies do you work with?",
-        answer: "We specialize in modern web technologies including React, Next.js, TypeScript, Node.js, and various databases. We also build mobile apps, SaaS platforms, and custom integrations."
+        answer: "We build full-stack applications using modern technologies: React, Next.js, TypeScript, Node.js, and Nest.js for web development; Flutter for mobile apps; MongoDB, PostgreSQL, and MySQL for databases.\n\nWe excel at third-party integrations (Stripe, Slack, HubSpot, etc.) and workflow automations (n8n, custom solutions)."
       },
       {
-        id: "confidentiality",
-        question: "How do you handle confidentiality?",
-        answer: "We take confidentiality seriously. We're happy to sign NDAs before discussing your project, and all our work includes confidentiality agreements by default."
+        id: "mobile",
+        question: "Do you build mobile apps too?",
+        answer: "Yes! We build cross-platform mobile applications using Flutter. We can create iOS and Android apps that integrate seamlessly with your web platform and share the same backend infrastructure."
+      },
+      {
+        id: "integrations",
+        question: "Can you help with API integrations?",
+        answer: "Absolutely. We specialize in connecting systems - whether it's payment processors like Stripe, CRMs like HubSpot, communication tools like Slack, or custom APIs. We make your software talk to everything else seamlessly."
+      },
+      {
+        id: "migration",
+        question: "Can you migrate our existing system?",
+        answer: "Yes, we handle system migrations and modernization projects. We'll audit your current system, plan a safe migration strategy, and move your data and functionality to modern infrastructure with minimal downtime."
+      },
+      {
+        id: "existing-code",
+        question: "Do you work with existing codebases?",
+        answer: "Definitely. We're experienced in code audits, refactoring, adding new features, and building integrations into legacy systems. We'll work with your existing technology choices and improve upon them."
       }
     ]
   },
   cta: {
     title: "Still Have Questions?",
-    subtitle: "Don't hesitate to reach out. We're here to help turn your ideas into reality.",
+    subtitle: "Don't hesitate to reach out. We're here to build your next software product with the integrations you need.",
     email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@minoqtopus.com",
     linkedinText: "Connect on LinkedIn"
   }

@@ -7,8 +7,8 @@ import { ContactFAQ } from "@/components/sections/ContactFAQ";
 import { ContactCTA } from "@/components/sections/ContactCTA";
 
 export const metadata: Metadata = generateMetadata({
-  title: "Contact - Minoqtopus | Let's Build Something Amazing",
-  description: "Get in touch with Minoqtopus for custom development, product support, or partnership opportunities. 24-hour response time, free consultation.",
+  title: "Contact - Minoqtopus | Custom Software & Integrations",
+  description: "Get in touch for custom software development, API integrations, and workflow automations. Serving funded startups and SMBs globally. 24-hour response, free consultation.",
   path: "/contact"
 });
 

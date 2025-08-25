@@ -12,7 +12,7 @@ export const getOrganizationStructuredData = (): StructuredData => ({
   "name": SITE_NAME,
   "url": SITE_URL,
   "logo": `${SITE_URL}/images/brand/logo.png`,
-  "description": "Transform your startup idea into a production-ready MVP in just 28 days. Expert software development with enterprise-grade security and scalable architecture.",
+  "description": "Full-lifecycle software development agency for funded startups and SMBs. Custom applications with third-party integrations and workflow automations. Ship in weeks, not months.",
   "sameAs": [
     LINKEDIN_URL
   ],
@@ -23,8 +23,8 @@ export const getOrganizationStructuredData = (): StructuredData => ({
   },
   "offers": {
     "@type": "Offer",
-    "name": "MVP Development",
-    "description": "Build your minimum viable product in 4 weeks",
+    "name": "Custom Software Development",
+    "description": "Full-lifecycle development with integrations and automations",
     "price": "Contact for pricing",
     "priceCurrency": "USD"
   }

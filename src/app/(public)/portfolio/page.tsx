@@ -3,8 +3,8 @@ import { generateMetadata } from "@/lib/seo";
 import { PortfolioHero, PortfolioShowcase, PortfolioCTA } from "@/components/sections";
 
 export const metadata: Metadata = generateMetadata({
-  title: "Portfolio - Minoqtopus | MVP Projects & Case Studies",
-  description: "Discover our successful MVP projects and case studies. From concept to production-ready solutions in 28 days.",
+  title: "Portfolio - Minoqtopus | Custom Software Projects",
+  description: "Real projects for funded startups and SMBs. Custom software development with seamless integrations and workflow automations. Ship in weeks, not months.",
   path: "/portfolio"
 });
 

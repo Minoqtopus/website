@@ -1,47 +1,47 @@
 export const productsCopy = {
   hero: {
     title: {
-      part1: "Digital",
-      highlight: "Solutions",
-      part2: "That Work"
+      part1: "Solutions",
+      highlight: "We Build",
+      part2: ""
     },
-    subtitle: "Discover our collection of premium software tools and templates.",
-    subtitleHighlight: " Built by developers, for everyone.",
-    subtitleEnd: "",
+    subtitle: "Examples of custom software we can build for your business.",
+    subtitleHighlight: " From SaaS platforms to automation tools",
+    subtitleEnd: ", tailored to your needs.",
     trustIndicators: [
-      { id: "quality", text: "Premium Quality" },
-      { id: "support", text: "Dedicated Support" },
-      { id: "updates", text: "Regular Updates" }
+      { id: "custom", text: "Fully Customizable" },
+      { id: "integrated", text: "API Integrations" },
+      { id: "scalable", text: "Built to Scale" }
     ]
   },
   showcase: {
     title: {
-      part1: "Our",
-      highlight: "Products"
+      part1: "Solution",
+      highlight: "Examples"
     },
-    subtitle: "Each product is carefully crafted to solve real problems and make your life easier."
+    subtitle: "These are the types of software products we build for our clients - each one customized to specific business needs."
   },
   cta: {
     title: {
-      part1: "Ready to",
-      highlight: "Get Started",
+      part1: "Need a",
+      highlight: "Custom Solution",
       part2: "?"
     },
-    subtitle: "Join thousands of people already using our products to",
-    subtitleHighlight: " work smarter",
-    subtitleEnd: " and get better results.",
+    subtitle: "Let's build software that fits your business perfectly with",
+    subtitleHighlight: " integrations and automations",
+    subtitleEnd: " built in.",
     primary: {
-      text: "Explore Products",
-      ariaLabel: "Explore Minoqtopus products"
+      text: "Start Your Project",
+      ariaLabel: "Start your custom software project"
     },
     secondary: {
-      text: "Need Custom Development?",
-      ariaLabel: "Explore custom development services"
+      text: "View Our Portfolio",
+      ariaLabel: "View our portfolio of completed projects"
     },
     trustIndicators: [
-      { id: "trial", text: "Free trials available" },
-      { id: "instant", text: "Instant access" },
-      { id: "support", text: "Lifetime updates included" }
+      { id: "consultation", text: "Free consultation" },
+      { id: "timeline", text: "Ship in weeks" },
+      { id: "support", text: "Ongoing support" }
     ]
   }
 } as const;

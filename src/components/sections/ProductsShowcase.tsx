@@ -112,8 +112,8 @@ export function ProductsShowcase() {
                           <p className="text-gray-500 text-sm mt-1">Starting price</p>
                         </div>
                         <div className="text-right">
-                          <p className="text-gray-900 font-semibold">Enterprise plans available</p>
-                          <p className="text-gray-500 text-sm">Custom pricing & features</p>
+                          <p className="text-gray-900 font-semibold">Custom plans available</p>
+                          <p className="text-gray-500 text-sm">Tailored to your needs</p>
                         </div>
                       </div>
                       
