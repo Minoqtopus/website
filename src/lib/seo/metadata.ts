@@ -28,9 +28,9 @@ export function generateMetadata({
     title,
     description,
     keywords,
-    authors: [{ name: "Minoqtopus Inc." }],
-    creator: "Minoqtopus Inc.",
-    publisher: "Minoqtopus Inc.",
+    authors: [{ name: "Minoqtopus" }],
+    creator: "Minoqtopus",
+    publisher: "Minoqtopus",
     formatDetection: {
       email: false,
       address: false,
@@ -75,8 +75,8 @@ export function generateMetadata({
       },
     },
     verification: {
-      google: 'your-google-verification-code',
-      yandex: 'your-yandex-verification-code',
+      google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION_CODE || 'your-google-verification-code',
+      yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION_CODE || 'your-yandex-verification-code',
     },
   };
 }

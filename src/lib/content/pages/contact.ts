@@ -133,7 +133,7 @@ export const contactCopy = {
   cta: {
     title: "Still Have Questions?",
     subtitle: "Don't hesitate to reach out. We're here to help turn your ideas into reality.",
-    email: "hello@minoqtopus.com",
+    email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@minoqtopus.com",
     linkedinText: "Connect on LinkedIn"
   }
 } as const;

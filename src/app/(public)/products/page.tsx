@@ -1,13 +1,8 @@
 import { ProductsCTA, ProductsHero, ProductsShowcase } from "@/components/sections";
 import { ComingSoon } from "@/components/sections/ComingSoon";
 import { generateMetadata } from "@/lib/seo";
+import { PRODUCTS_LIVE } from "@/config/app";
 import { Metadata } from "next";
-// import { ProductsHero } from "@/components/sections/ProductsHero";
-// import { ProductsShowcase } from "@/components/sections/ProductsShowcase";
-// import { ProductsCTA } from "@/components/sections/ProductsCTA";
-
-// Toggle this to activate/deactivate products page
-const PRODUCTS_LIVE = false;
 
 export const metadata: Metadata = generateMetadata({
   title: PRODUCTS_LIVE 

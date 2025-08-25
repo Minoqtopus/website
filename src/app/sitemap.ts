@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://minoqtopus.com';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://minoqtopus.com';
   const currentDate = new Date().toISOString();
 
   return [

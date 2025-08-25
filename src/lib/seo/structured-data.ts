@@ -1,20 +1,25 @@
 import { StructuredData } from '@/types';
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://minoqtopus.com";
+const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME || "Minoqtopus";
+const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/minoqtopus/30min";
+const LINKEDIN_URL = process.env.NEXT_PUBLIC_LINKEDIN_URL || "https://www.linkedin.com/company/minoqtopus-inc/";
+
 // Default organization structured data
 export const getOrganizationStructuredData = (): StructuredData => ({
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Minoqtopus Inc.",
-  "url": "https://minoqtopus.com",
-  "logo": "https://minoqtopus.com/images/brand/logo.png",
+  "name": SITE_NAME,
+  "url": SITE_URL,
+  "logo": `${SITE_URL}/images/brand/logo.png`,
   "description": "Transform your startup idea into a production-ready MVP in just 28 days. Expert software development with enterprise-grade security and scalable architecture.",
   "sameAs": [
-    "https://www.linkedin.com/company/minoqtopus-inc/"
+    LINKEDIN_URL
   ],
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "Sales",
-    "url": "https://calendly.com/minoqtous-inc/discovery-call-minoqtopus"
+    "url": CALENDLY_URL
   },
   "offers": {
     "@type": "Offer",
