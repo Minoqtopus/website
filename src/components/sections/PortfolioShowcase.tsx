@@ -7,16 +7,16 @@ import Image from "next/image";
 
 export function PortfolioShowcase() {
   const { buttons, techStack } = portfolioShowcaseCopy;
-  
+
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {portfolioProjects.map((project, index) => (
             <ScrollReveal key={project.id} delay={0.1 + index * 0.05}>
               <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-gray-200 h-full flex flex-col">
                 {/* Project Preview */}
-                <div className="h-48 relative overflow-hidden">
+                <div className="h-56 relative overflow-hidden">
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -25,21 +25,20 @@ export function PortfolioShowcase() {
                   />
                   <div className="absolute inset-0 bg-black/20"></div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                  
-                  {/* Category Badge */}
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-white/20 backdrop-blur-sm text-white rounded-full text-sm font-medium">
-                      {project.category}
-                    </span>
-                  </div>
                 </div>
 
                 {/* Project Content */}
                 <div className="p-6 flex-1 flex flex-col">
                   <div className="mb-6 flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-700 transition-colors leading-tight">
-                      {project.title}
-                    </h3>
+                    <div className="flex justify-between items-center mb-3">
+                      <h3 className="text-xl font-bold text-gray-900 group-hover:text-green-700 transition-colors leading-tight">
+                        {project.title}
+                      </h3>
+                      {/* Category Badge */}
+                      <span className="px-3 py-1 rounded-full bg-amber-200 text-black  text-sm font-medium">
+                        {project.category}
+                      </span>
+                    </div>
                     <p className="text-gray-600 leading-relaxed text-sm h-20">
                       {project.description}
                     </p>
@@ -49,7 +48,7 @@ export function PortfolioShowcase() {
                   <div className="mb-6">
                     <div className="flex flex-wrap gap-2">
                       {project.techStack.slice(0, 5).map((tech, i) => (
-                        <span 
+                        <span
                           key={i}
                           className="px-3 py-1 bg-gray-50 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-100 transition-colors"
                         >
@@ -57,14 +56,14 @@ export function PortfolioShowcase() {
                         </span>
                       ))}
                       {project.techStack.length > 5 && (
-                        <span 
+                        <span
                           className="px-3 py-1 bg-gray-50 text-gray-500 rounded-lg text-sm cursor-help relative group/tooltip"
-                          title={project.techStack.slice(5).join(', ')}
+                          title={project.techStack.slice(5).join(", ")}
                         >
                           +{project.techStack.length - 5} {techStack.moreText}
                           {/* Tooltip */}
                           <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover/tooltip:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
-                            <div className="text-left">
+                            <div className="text-left space-y-2">
                               {project.techStack.slice(5).map((tech, i) => (
                                 <div key={i}>{tech}</div>
                               ))}
@@ -85,11 +84,11 @@ export function PortfolioShowcase() {
                         rel="noopener noreferrer"
                         className="flex-1 bg-green-700 hover:bg-green-800 text-white text-center py-3 px-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
                       >
-{buttons.viewLive}
+                        {buttons.viewLive}
                       </a>
                     ) : (
                       <div className="flex-1 bg-gray-100 text-gray-400 text-center py-3 px-4 rounded-xl font-semibold cursor-not-allowed">
-{buttons.comingSoon}
+                        {buttons.comingSoon}
                       </div>
                     )}
                     <a
@@ -98,7 +97,7 @@ export function PortfolioShowcase() {
                       rel="noopener noreferrer"
                       className="flex-1 bg-white border-2 border-gray-200 hover:border-green-700 text-gray-700 hover:text-green-700 text-center py-3 px-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
                     >
-{buttons.caseStudy}
+                      {buttons.caseStudy}
                     </a>
                   </div>
                 </div>

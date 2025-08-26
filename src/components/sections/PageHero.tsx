@@ -17,15 +17,15 @@ interface PageHeroProps {
   }[];
 }
 
-export function PageHero({ 
-  title, 
-  subtitle, 
-  subtitleHighlight, 
-  subtitleEnd, 
-  trustIndicators 
+export function PageHero({
+  title,
+  subtitle,
+  subtitleHighlight,
+  subtitleEnd,
+  trustIndicators,
 }: PageHeroProps) {
   return (
-    <section className="min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-green-50 via-white to-green-100 relative overflow-hidden pt-20 pb-16">
+    <section className="min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-green-50 via-white to-green-100 relative overflow-hidden sm:pt-32 pt-24 pb-16">
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="max-w-4xl mx-auto text-center">
           <ScrollReveal delay={0.1}>
@@ -41,7 +41,9 @@ export function PageHero({
           <ScrollReveal delay={0.2}>
             <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto mb-8 font-medium leading-relaxed">
               {subtitle}
-              <span className="text-green-700 font-bold">{subtitleHighlight}</span>
+              <span className="text-green-700 font-bold">
+                {subtitleHighlight}
+              </span>
               {subtitleEnd}
             </p>
           </ScrollReveal>
