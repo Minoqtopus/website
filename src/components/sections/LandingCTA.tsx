@@ -8,21 +8,21 @@ import { CTAButton, CTASectionProps } from '@/types';
 
 // Default button configurations from content and config
 const defaultPrimaryButton: CTAButton = {
-  href: APP_CONFIG.calendlyUrl,
+  href: homeCopy.hero.cta.primary.href,
   label: homeCopy.hero.cta.primary.text,
   ariaLabel: homeCopy.hero.cta.primary.ariaLabel,
   variant: 'primary',
-  icon: 'calendar',
+  icon: undefined,
   text: homeCopy.hero.cta.primary.text
 };
 
 const defaultSecondaryButton: CTAButton = {
-  href: APP_CONFIG.upworkUrl,
-  label: "Hire on Upwork",
-  ariaLabel: "Hire us on Upwork platform",
+  href: homeCopy.hero.cta.secondary.href,
+  label: homeCopy.hero.cta.secondary.text,
+  ariaLabel: homeCopy.hero.cta.secondary.ariaLabel,
   variant: 'secondary',
-  icon: 'upwork',
-  text: "Hire on Upwork"
+  icon: 'calendar',
+  text: homeCopy.hero.cta.secondary.text
 };
 
 export function LandingCTA({ 
@@ -49,8 +49,8 @@ export function LandingCTA({
       return (
         <a
           href={button.href}
-          target="_blank"
-          rel="noopener noreferrer"
+          target={button.href?.startsWith('http') ? "_blank" : undefined}
+          rel={button.href?.startsWith('http') ? "noopener noreferrer" : undefined}
           className="group relative text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-bold hover:bg-green-800 transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 overflow-hidden focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50 font-display inline-flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-center"
           style={{ backgroundColor: 'var(--color-primary)' }}
           aria-label={button.ariaLabel}
@@ -65,8 +65,8 @@ export function LandingCTA({
     return (
       <a
         href={button.href}
-        target="_blank"
-        rel="noopener noreferrer"
+        target={button.href?.startsWith('http') ? "_blank" : undefined}
+        rel={button.href?.startsWith('http') ? "noopener noreferrer" : undefined}
         className="bg-white border-2 px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-bold hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-4 focus:ring-opacity-50 font-display inline-flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-center"
         style={{ 
           color: 'var(--color-primary)',

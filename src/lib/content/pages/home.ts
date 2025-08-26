@@ -1,3 +1,5 @@
+import { URLS } from "@/config/urls";
+
 export const homeCopy = {
   hero: {
     logoAlt: "Minoqtopus",
@@ -11,14 +13,14 @@ export const homeCopy = {
     subtitleEnd: ". For funded startups and growing businesses.",
     cta: {
       primary: {
-        text: "Schedule a Call",
-        href: "https://calendly.com/minoqtopus/30min",
-        ariaLabel: "Schedule a call to discuss your project"
+        text: "View Our Work",
+        href: URLS.portfolio,
+        ariaLabel: "View our portfolio of completed projects"
       },
       secondary: {
-        text: "LinkedIn",
-        href: "https://www.linkedin.com/company/minoqtopus-agency/",
-        ariaLabel: "Connect with us on LinkedIn"
+        text: "Quick Chat",
+        href: URLS.calendly,
+        ariaLabel: "Schedule a quick chat to discuss your project"
       }
     },
     trustIndicators: [

@@ -1,7 +1,6 @@
 "use client";
 
 import { ScrollReveal } from "@/components/ui";
-import { APP_CONFIG } from "@/config";
 
 interface PageCTAProps {
   title: {
@@ -45,8 +44,8 @@ export function PageCTA({
     }
   };
 
-  const primaryHref = primary.href || (primary.text.includes('@') ? `mailto:${primary.text}` : '#');
-  const secondaryHref = secondary.href || APP_CONFIG.linkedinUrl;
+  const primaryHref = primary.href || '#';
+  const secondaryHref = secondary.href || '#';
 
   return (
     <section className="py-16 bg-gradient-to-br from-green-50 via-white to-green-100">
@@ -103,14 +102,17 @@ export function PageCTA({
               </a>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-gray-500 text-sm font-medium">
-              {trustIndicators.map((indicator) => (
-                <div key={indicator.id} className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-green-600"></div>
-                  {indicator.text}
-                </div>
-              ))}
-            </div>
+            {/* Trust indicators temporarily disabled for design review */}
+            {false && (
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-gray-500 text-sm font-medium">
+                {trustIndicators.map((indicator) => (
+                  <div key={indicator.id} className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-green-600"></div>
+                    {indicator.text}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </ScrollReveal>
       </div>

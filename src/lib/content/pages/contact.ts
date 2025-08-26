@@ -1,3 +1,5 @@
+import { URLS } from "@/config/urls";
+
 export const contactCopy = {
   hero: {
     title: {
@@ -138,27 +140,27 @@ export const contactCopy = {
   },
   cta: {
     title: {
-      part1: "Still Have",
-      highlight: "Questions",
+      part1: "Ready to",
+      highlight: "Get Started",
       part2: "?"
     },
-    subtitle: "Don't hesitate to reach out. We're here to build your next software product with",
-    subtitleHighlight: " the automations and integrations",
-    subtitleEnd: " you need.",
+    subtitle: "Hire us directly on Upwork for immediate project launch, or schedule a call for",
+    subtitleHighlight: " larger custom development",
+    subtitleEnd: " projects.",
     primary: {
-      text: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@minoqtopus.com",
-      href: `mailto:${process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@minoqtopus.com"}`,
-      ariaLabel: "Send us an email"
+      text: "Hire on Upwork",
+      href: URLS.upwork,
+      ariaLabel: "Hire Minoqtopus on Upwork"
     },
     secondary: {
-      text: "Connect on LinkedIn",
-      href: "", // Will use APP_CONFIG.linkedinUrl
-      ariaLabel: "Connect with us on LinkedIn"
+      text: "Schedule a Call",
+      href: URLS.calendly,
+      ariaLabel: "Schedule a call with Minoqtopus"
     },
     trustIndicators: [
-      { id: "response", text: "Quick Response" },
+      { id: "response", text: "24-Hour Response" },
       { id: "consultation", text: "Free Consultation" },
-      { id: "confidential", text: "100% Confidential" }
+      { id: "timeline", text: "Ship in Weeks" }
     ]
   }
 } as const;

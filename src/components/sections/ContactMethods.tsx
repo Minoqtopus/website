@@ -2,14 +2,16 @@
 
 import { ScrollReveal } from "@/components/ui";
 import { contactCopy } from "@/lib/content/pages/contact";
-import { APP_CONFIG } from "@/config";
+import { navigationCopy } from "@/lib/content/components/navigation";
+import { URLS } from "@/config/urls";
 
 export function ContactMethods() {
   const { methods } = contactCopy;
+  const { badges, symbols } = navigationCopy;
   
   const getActionUrl = (option: (typeof methods.options)[number]) => {
-    if (option.id === 'quick-project') return APP_CONFIG.upworkUrl;
-    if (option.id === 'custom-development') return APP_CONFIG.calendlyUrl;
+    if (option.id === 'quick-project') return URLS.upwork;
+    if (option.id === 'custom-development') return URLS.calendly;
     return '#contact-form';
   };
   
@@ -38,7 +40,7 @@ export function ContactMethods() {
                 {('recommended' in option && option.recommended) && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                     <span className="bg-green-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
-                      Recommended
+{badges.recommended}
                     </span>
                   </div>
                 )}
@@ -73,7 +75,7 @@ export function ContactMethods() {
                         : 'bg-gray-100 hover:bg-green-50 text-gray-700 hover:text-green-700'
                     }`}
                   >
-                    {option.action} →
+{option.action}{symbols.arrow}
                   </a>
                 )}
               </div>

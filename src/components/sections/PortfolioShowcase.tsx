@@ -2,8 +2,12 @@
 
 import { ScrollReveal } from "@/components/ui";
 import { portfolioProjects } from "@/lib/data/portfolio";
+import { portfolioShowcaseCopy } from "@/lib/content/components/portfolio-showcase";
+import Image from "next/image";
 
 export function PortfolioShowcase() {
+  const { buttons, techStack } = portfolioShowcaseCopy;
+  
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -12,7 +16,13 @@ export function PortfolioShowcase() {
             <ScrollReveal key={project.id} delay={0.1 + index * 0.05}>
               <div className="group bg-white rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-gray-200 h-full flex flex-col">
                 {/* Project Preview */}
-                <div className={`h-48 bg-gradient-to-br ${project.color} relative overflow-hidden`}>
+                <div className="h-48 relative overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                  />
                   <div className="absolute inset-0 bg-black/20"></div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                   
@@ -21,15 +31,6 @@ export function PortfolioShowcase() {
                     <span className="px-3 py-1 bg-white/20 backdrop-blur-sm text-white rounded-full text-sm font-medium">
                       {project.category}
                     </span>
-                  </div>
-                  
-                  {/* Project Icon/Mockup Area */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-20 h-20 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/20">
-                      <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
-                        <span className="text-white font-bold text-xl">{project.category.charAt(0)}</span>
-                      </div>
-                    </div>
                   </div>
                 </div>
 
@@ -57,7 +58,7 @@ export function PortfolioShowcase() {
                       ))}
                       {project.techStack.length > 4 && (
                         <span className="px-3 py-1 bg-gray-50 text-gray-500 rounded-lg text-sm">
-                          +{project.techStack.length - 4} more
+                          +{project.techStack.length - 4} {techStack.moreText}
                         </span>
                       )}
                     </div>
@@ -72,11 +73,11 @@ export function PortfolioShowcase() {
                         rel="noopener noreferrer"
                         className="flex-1 bg-green-700 hover:bg-green-800 text-white text-center py-3 px-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg"
                       >
-                        View Live
+{buttons.viewLive}
                       </a>
                     ) : (
                       <div className="flex-1 bg-gray-100 text-gray-400 text-center py-3 px-4 rounded-xl font-semibold cursor-not-allowed">
-                        Coming Soon
+{buttons.comingSoon}
                       </div>
                     )}
                     <a
@@ -85,7 +86,7 @@ export function PortfolioShowcase() {
                       rel="noopener noreferrer"
                       className="flex-1 bg-white border-2 border-gray-200 hover:border-green-700 text-gray-700 hover:text-green-700 text-center py-3 px-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105"
                     >
-                      Case Study
+{buttons.caseStudy}
                     </a>
                   </div>
                 </div>

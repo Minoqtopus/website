@@ -1,3 +1,5 @@
+import { URLS } from "@/config/urls";
+
 export const productsCopy = {
   hero: {
     title: {
@@ -23,25 +25,27 @@ export const productsCopy = {
   },
   cta: {
     title: {
-      part1: "Need a",
-      highlight: "Custom Solution",
+      part1: "Ready to Build",
+      highlight: "Your Solution",
       part2: "?"
     },
-    subtitle: "Let's build software that fits your business perfectly with",
-    subtitleHighlight: " integrations and automations",
-    subtitleEnd: " built in.",
+    subtitle: "See our real implementations first, then hire us directly on",
+    subtitleHighlight: " Upwork for fast project delivery",
+    subtitleEnd: ".",
     primary: {
-      text: "Start Your Project",
-      ariaLabel: "Start your custom software project"
+      text: "View Real Examples",
+      href: URLS.portfolio,
+      ariaLabel: "View our portfolio of real implementations"
     },
     secondary: {
-      text: "View Our Portfolio",
-      ariaLabel: "View our portfolio of completed projects"
+      text: "Hire on Upwork",
+      href: URLS.upwork,
+      ariaLabel: "Hire Minoqtopus on Upwork"
     },
     trustIndicators: [
-      { id: "consultation", text: "Free consultation" },
-      { id: "timeline", text: "Ship in weeks" },
-      { id: "support", text: "Ongoing support" }
+      { id: "proven", text: "Proven Solutions" },
+      { id: "timeline", text: "Ship in Weeks" },
+      { id: "support", text: "Ongoing Support" }
     ]
   }
 } as const;

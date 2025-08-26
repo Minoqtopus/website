@@ -1,3 +1,5 @@
+import { URLS } from "@/config/urls";
+
 export const portfolioCopy = {
   hero: {
     title: {
@@ -22,25 +24,27 @@ export const portfolioCopy = {
   },
   cta: {
     title: {
-      part1: "Ready to Build Your",
-      highlight: "Next Product",
+      part1: "Ready to Join Our",
+      highlight: "Success Stories",
       part2: "?"
     },
-    subtitle: "Join our portfolio of successful projects. We'll build your custom software with",
-    subtitleHighlight: " seamless integrations",
-    subtitleEnd: " and automated workflows.",
+    subtitle: "Hire us directly on Upwork for the fastest project start. Or schedule a call for",
+    subtitleHighlight: " larger custom development",
+    subtitleEnd: " projects.",
     primary: {
-      text: "Start Your Project",
-      ariaLabel: "Start your project with Minoqtopus"
+      text: "Hire on Upwork",
+      href: URLS.upwork,
+      ariaLabel: "Hire Minoqtopus on Upwork"
     },
     secondary: {
       text: "Schedule a Call",
+      href: URLS.calendly,
       ariaLabel: "Schedule a call with Minoqtopus"
     },
     trustIndicators: [
-      { id: "scoping", text: "Free project scoping" },
-      { id: "delivery", text: "Fast delivery timeline" },
-      { id: "stack", text: "Full-stack expertise" }
+      { id: "delivery", text: "Fast Delivery Timeline" },
+      { id: "expertise", text: "Full-Stack Expertise" },
+      { id: "consultation", text: "Free Consultation" }
     ]
   }
 } as const;

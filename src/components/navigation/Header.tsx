@@ -4,10 +4,13 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { APP_CONFIG } from '@/config';
+import { navigationCopy } from '@/lib/content/components/navigation';
+import { URLS } from '@/config/urls';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { main, cta, ariaLabels } = navigationCopy;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,7 +47,7 @@ export function Header() {
 
           {/* Center: Navigation */}
           <div className="hidden md:flex items-center justify-center">
-            {APP_CONFIG.navigation.main.map((item) => (
+{main.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
@@ -59,7 +62,7 @@ export function Header() {
           <div className="flex items-center justify-end space-x-6">
             {/* Desktop CTA */}
             <a
-              href={APP_CONFIG.navigation.cta.href}
+              href={cta.href}
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center px-6 py-3 rounded-xl text-white font-semibold text-[15px] tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-green-700/25"
@@ -68,14 +71,14 @@ export function Header() {
                 background: 'linear-gradient(135deg, var(--color-primary) 0%, #0f5132 100%)'
               }}
             >
-              {APP_CONFIG.navigation.cta.label}
+              {cta.label}
             </a>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden p-3 rounded-full hover:bg-black/5 transition-all duration-300 group"
-              aria-label="Toggle mobile menu"
+aria-label={ariaLabels.toggleMenu}
             >
               <div className="w-6 h-6 relative">
                 <span
@@ -104,7 +107,7 @@ export function Header() {
         }`}>
           <div className="border-t border-black/10 bg-white/95 backdrop-blur-xl rounded-b-2xl mx-[-24px] mt-4">
             <div className="py-6 px-6 space-y-2">
-              {APP_CONFIG.navigation.main.map((item, index) => (
+{main.map((item, index) => (
                 <Link
                   key={item.href}
                   href={item.href}
@@ -112,14 +115,14 @@ export function Header() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
-                  {item.label}
+  {item.label}
                 </Link>
               ))}
               
               {/* Mobile CTA */}
               <div className="pt-4">
                 <a
-                  href={APP_CONFIG.navigation.cta.href}
+                  href={cta.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block w-full text-center px-6 py-4 rounded-xl text-white font-semibold text-[16px] transition-all duration-300 hover:scale-105"
@@ -129,7 +132,7 @@ export function Header() {
                   }}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {APP_CONFIG.navigation.cta.label}
+                  {cta.label}
                 </a>
               </div>
             </div>

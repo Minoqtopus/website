@@ -2,8 +2,11 @@
 
 import { ScrollReveal } from "@/components/ui";
 import { products } from "@/lib/data/products";
+import { productsShowcaseCopy } from "@/lib/content/components/products-showcase";
 
 export function ProductsShowcase() {
+  const { status } = productsShowcaseCopy;
+  
   return (
     <section className="py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,7 +33,7 @@ export function ProductsShowcase() {
                               ? 'bg-yellow-100 text-yellow-800'
                               : 'bg-gray-100 text-gray-800'
                           }`}>
-                            {product.status === 'live' ? 'Live' : product.status === 'beta' ? 'Beta' : 'Coming Soon'}
+{product.status === 'live' ? status.live : product.status === 'beta' ? status.beta : status.comingSoon}
                           </span>
                         </div>
                         
@@ -129,7 +132,7 @@ export function ProductsShowcase() {
                           </a>
                         ) : (
                           <div className="flex-1 bg-gray-300 text-gray-500 text-center py-4 px-6 rounded-xl font-semibold text-lg cursor-not-allowed">
-                            Coming Soon
+{status.comingSoon}
                           </div>
                         )}
                         
