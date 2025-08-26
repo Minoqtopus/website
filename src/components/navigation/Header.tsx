@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
 import { APP_CONFIG } from "@/config";
 import { navigationCopy } from "@/lib/content/components/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -29,7 +29,7 @@ export function Header() {
       }`}
     >
       <nav className="container mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-3 items-center h-16 w-full">
+        <div className="grid grid-cols-3 items-center h-24 w-full">
           {/* Left: Logo */}
           <div className="flex justify-start h-16">
             <Link href="/" className="flex items-center group">
