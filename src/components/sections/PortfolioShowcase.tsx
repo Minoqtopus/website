@@ -48,7 +48,7 @@ export function PortfolioShowcase() {
                   {/* Tech Stack */}
                   <div className="mb-6">
                     <div className="flex flex-wrap gap-2">
-                      {project.techStack.slice(0, 4).map((tech, i) => (
+                      {project.techStack.slice(0, 5).map((tech, i) => (
                         <span 
                           key={i}
                           className="px-3 py-1 bg-gray-50 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-100 transition-colors"
@@ -56,9 +56,21 @@ export function PortfolioShowcase() {
                           {tech}
                         </span>
                       ))}
-                      {project.techStack.length > 4 && (
-                        <span className="px-3 py-1 bg-gray-50 text-gray-500 rounded-lg text-sm">
-                          +{project.techStack.length - 4} {techStack.moreText}
+                      {project.techStack.length > 5 && (
+                        <span 
+                          className="px-3 py-1 bg-gray-50 text-gray-500 rounded-lg text-sm cursor-help relative group/tooltip"
+                          title={project.techStack.slice(5).join(', ')}
+                        >
+                          +{project.techStack.length - 5} {techStack.moreText}
+                          {/* Tooltip */}
+                          <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover/tooltip:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
+                            <div className="text-left">
+                              {project.techStack.slice(5).map((tech, i) => (
+                                <div key={i}>{tech}</div>
+                              ))}
+                            </div>
+                            <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-900"></div>
+                          </div>
                         </span>
                       )}
                     </div>

@@ -51,8 +51,7 @@ export function LandingCTA({
           href={button.href}
           target={button.href?.startsWith('http') ? "_blank" : undefined}
           rel={button.href?.startsWith('http') ? "noopener noreferrer" : undefined}
-          className="group relative text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-bold hover:bg-green-800 transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 overflow-hidden focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50 font-display inline-flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-center"
-          style={{ backgroundColor: 'var(--color-primary)' }}
+          className="group relative bg-green-700 hover:bg-green-800 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-bold transition-all duration-300 shadow-lg hover:shadow-2xl hover:scale-105 overflow-hidden focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50 font-display inline-flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-center"
           aria-label={button.ariaLabel}
         >
           {renderIcon(button.icon)}
@@ -67,22 +66,7 @@ export function LandingCTA({
         href={button.href}
         target={button.href?.startsWith('http') ? "_blank" : undefined}
         rel={button.href?.startsWith('http') ? "noopener noreferrer" : undefined}
-        className="bg-white border-2 px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-bold hover:text-white transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-4 focus:ring-opacity-50 font-display inline-flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-center"
-        style={{ 
-          color: 'var(--color-primary)',
-          borderColor: 'var(--color-primary)'
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.backgroundColor = 'var(--color-primary)';
-          e.currentTarget.style.color = 'white';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.backgroundColor = 'white';
-          e.currentTarget.style.color = 'var(--color-primary)';
-        }}
-        onFocus={(e) => {
-          e.currentTarget.style.outlineColor = 'var(--color-primary)';
-        }}
+        className="bg-white border-2 border-green-700 text-green-700 hover:bg-green-700 hover:text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl text-base sm:text-lg font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-500 focus:ring-opacity-50 font-display inline-flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-center"
         aria-label={button.ariaLabel}
       >
         {renderIcon(button.icon)}

@@ -15,8 +15,7 @@ export function ErrorFallback({ reset }: ErrorFallbackProps) {
         </p>
         <button
           onClick={reset}
-          className="px-6 py-3 rounded-xl text-white font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
-          style={{ backgroundColor: 'var(--color-primary)' }}
+          className="px-6 py-3 bg-green-700 hover:bg-green-800 rounded-xl text-white font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
         >
           Try Again
         </button>

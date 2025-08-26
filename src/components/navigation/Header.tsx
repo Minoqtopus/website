@@ -65,11 +65,7 @@ export function Header() {
               href={cta.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center px-6 py-3 rounded-xl text-white font-semibold text-[15px] tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-green-700/25"
-              style={{ 
-                backgroundColor: 'var(--color-primary)',
-                background: 'linear-gradient(135deg, var(--color-primary) 0%, #0f5132 100%)'
-              }}
+              className="hidden sm:inline-flex items-center px-6 py-3 rounded-xl bg-green-700 hover:bg-green-800 text-white font-semibold text-[15px] tracking-wide transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-green-700/25"
             >
               {cta.label}
             </a>
@@ -125,11 +121,7 @@ aria-label={ariaLabels.toggleMenu}
                   href={cta.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block w-full text-center px-6 py-4 rounded-xl text-white font-semibold text-[16px] transition-all duration-300 hover:scale-105"
-                  style={{ 
-                    backgroundColor: 'var(--color-primary)',
-                    background: 'linear-gradient(135deg, var(--color-primary) 0%, #0f5132 100%)'
-                  }}
+                  className="block w-full text-center px-6 py-4 rounded-xl bg-green-700 hover:bg-green-800 text-white font-semibold text-[16px] transition-all duration-300 hover:scale-105"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {cta.label}
