@@ -8,13 +8,13 @@ import { URLS } from "@/config/urls";
 export function ContactMethods() {
   const { methods } = contactCopy;
   const { badges, symbols } = navigationCopy;
-  
+
   const getActionUrl = (option: (typeof methods.options)[number]) => {
-    if (option.id === 'quick-project') return URLS.upwork;
-    if (option.id === 'custom-development') return URLS.calendly;
-    return '#contact-form';
+    if (option.id === "quick-project") return URLS.upwork;
+    if (option.id === "custom-development") return URLS.calendly;
+    return "#contact-form";
   };
-  
+
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,32 +32,32 @@ export function ContactMethods() {
         <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {methods.options.map((option, index) => (
             <ScrollReveal key={option.id} delay={0.2 + index * 0.1}>
-              <div className={`relative bg-white rounded-2xl p-8 border-2 transition-all duration-300 hover:scale-105 hover:shadow-xl ${
-                ('recommended' in option && option.recommended)
-                  ? 'border-green-600 shadow-lg' 
-                  : 'border-gray-200 hover:border-green-600'
-              }`}>
-                {('recommended' in option && option.recommended) && (
+              <div
+                className={`relative bg-white rounded-2xl p-8 border-2 transition-all duration-300 hover:scale-105 hover:shadow-xl ${
+                  "recommended" in option && option.recommended
+                    ? "border-green-600 shadow-lg"
+                    : "border-gray-200 hover:border-green-600"
+                }`}
+              >
+                {"recommended" in option && option.recommended && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                     <span className="bg-green-600 text-white px-4 py-1 rounded-full text-sm font-semibold">
-{badges.recommended}
+                      {badges.recommended}
                     </span>
                   </div>
                 )}
-                
+
                 <div className="mb-6">
                   <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-4">
                     <div className="w-8 h-8 bg-green-600 rounded-xl"></div>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
                     {option.title}
                   </h3>
-                  <p className="text-gray-600">
-                    {option.description}
-                  </p>
+                  <p className="text-gray-600">{option.description}</p>
                 </div>
-                
-                {option.actionType === 'form' ? (
+
+                {option.actionType === "form" ? (
                   <a
                     href={getActionUrl(option)}
                     className="block w-full text-center px-6 py-3 bg-gray-100 hover:bg-green-50 text-gray-700 hover:text-green-700 rounded-xl font-semibold transition-all duration-300"
@@ -70,12 +70,13 @@ export function ContactMethods() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`block w-full text-center px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${
-                      ('recommended' in option && option.recommended)
-                        ? 'bg-green-700 hover:bg-green-800 text-white'
-                        : 'bg-gray-100 hover:bg-green-50 text-gray-700 hover:text-green-700'
+                      "recommended" in option && option.recommended
+                        ? "bg-green-700 hover:bg-green-800 text-white"
+                        : "bg-gray-100 hover:bg-green-50 text-gray-700 hover:text-green-700"
                     }`}
                   >
-{option.action}{symbols.arrow}
+                    {option.action}
+                    {symbols.arrow}
                   </a>
                 )}
               </div>
