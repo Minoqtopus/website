@@ -4,9 +4,28 @@
   --background: #ffffff;
   --foreground: #1d1d1f;
   
-  /* Lato font system */
-  --font-display: var(--font-lato), 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-text: var(--font-lato), 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Brand Colors */
+  --color-primary: #1a7753;
+  --color-linkedin: #0077B5;
+  
+  /* Green Palette */
+  --color-green-50: rgb(240 253 244);
+  --color-green-100: rgb(220 252 231);
+  --color-green-200: rgb(187 247 208);
+  --color-green-300: rgb(134 239 172);
+  --color-green-400: rgb(74 222 128);
+  --color-green-600: rgb(22 163 74);
+  --color-green-700: rgb(21 128 61);
+  --color-green-800: rgb(22 101 52);
+  
+  /* Gray Palette */
+  --color-gray-500: rgb(107 114 128);
+  --color-gray-600: rgb(75 85 99);
+  --color-gray-900: rgb(17 24 39);
+  
+  /* Montserrat font system - simplified without system fallbacks */
+  --font-display: 'Montserrat', var(--font-montserrat), sans-serif;
+  --font-text: 'Montserrat', var(--font-montserrat), sans-serif;
   
   /* Refined spacing scale */
   --space-xs: 0.25rem;
@@ -47,42 +66,49 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Apple-level animations */
-@keyframes gentleFloat {
-  0%, 100% { 
-    transform: translateY(0px) translateX(0px) rotate(0deg); 
-  }
-  50% { 
-    transform: translateY(-20px) translateX(8px) rotate(1deg); 
-  }
+/* Force Montserrat font on all elements - this must come after Tailwind import */
+html {
+  font-family: 'Montserrat', var(--font-montserrat), sans-serif !important;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+body {
+  font-family: 'Montserrat', var(--font-montserrat), sans-serif !important;
 }
 
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+* {
+  font-family: 'Montserrat', var(--font-montserrat), sans-serif !important;
 }
 
+/* Ensure all common elements use Montserrat with high specificity */
+h1, h2, h3, h4, h5, h6,
+p, span, div, a, button, input, textarea, label,
+li, ul, ol, table, th, td,
+section, article, aside, nav, header, footer, main {
+  font-family: 'Montserrat', var(--font-montserrat), sans-serif !important;
+}
+
+/* Override any Tailwind font utilities that might be using system fonts */
+.font-sans,
+.font-display,
+.font-text {
+  font-family: 'Montserrat', var(--font-montserrat), sans-serif !important;
+}
+
+/* Override any potential Tailwind base styles with high specificity */
+.text-sm, .text-base, .text-lg, .text-xl, .text-2xl, .text-3xl,
+.text-xs, .text-4xl, .text-5xl, .text-6xl, .text-7xl, .text-8xl, .text-9xl {
+  font-family: 'Montserrat', var(--font-montserrat), sans-serif !important;
+}
+
+/* Apple-level animations - unique ones not in Tailwind config */
+
+/* Only keep animations that are actually used */
+
+/* Mobile menu animations */
 @keyframes slideInLeft {
   from {
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translateX(-20px);
   }
   to {
     opacity: 1;
@@ -90,81 +116,26 @@ body {
   }
 }
 
-@keyframes slideInRight {
+@keyframes slideInDown {
   from {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translateY(-20px);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Enhanced hero animations */
-@keyframes floatAndGlow {
-  0%, 100% { 
-    transform: translateY(0px) translateX(0px) rotate(0deg);
-    filter: drop-shadow(0 0 20px rgba(34, 197, 94, 0.3));
-  }
-  50% { 
-    transform: translateY(-25px) translateX(10px) rotate(2deg);
-    filter: drop-shadow(0 0 30px rgba(34, 197, 94, 0.6));
-  }
-}
-
-@keyframes pulseGlow {
-  0%, 100% {
-    opacity: 0.6;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.1);
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-@keyframes rotateSlow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes bounceGentle {
-  0%, 100% {
     transform: translateY(0);
   }
-  50% {
-    transform: translateY(-10px);
-  }
 }
 
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Smooth scrolling */
+/* Smooth scrolling and prevent horizontal overflow */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Prevent horizontal overflow on body */
+body {
+  overflow-x: hidden;
 }
 
 /* Custom scrollbar */
@@ -223,50 +194,12 @@ html {
   }
 }
 
-/* Hero section specific enhancements */
-.hero-glow {
-  animation: floatAndGlow 8s ease-in-out infinite;
-}
-
-.hero-pulse {
-  animation: pulseGlow 3s ease-in-out infinite;
-}
-
-.hero-shimmer {
-  animation: shimmer 4s ease-in-out infinite;
-}
-
-.hero-rotate {
-  animation: rotateSlow 20s linear infinite;
-}
-
-.hero-bounce {
-  animation: bounceGentle 4s ease-in-out infinite;
-}
-
-.hero-fade-in {
-  animation: fadeInScale 1.5s ease-out;
-}
-
-/* Glassmorphism effects */
-.glass-light {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.glass-medium {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-}
-
-.glass-strong {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
 
 .text-transparent {
   color: rgb(26, 103, 75) !important;
+}
+
+/* Hide reCAPTCHA badge since privacy policy text is displayed */
+.grecaptcha-badge { 
+  visibility: hidden;
 }
