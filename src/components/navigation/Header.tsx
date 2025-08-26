@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { APP_CONFIG } from '@/config';
 import { navigationCopy } from '@/lib/content/components/navigation';
-import { URLS } from '@/config/urls';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);

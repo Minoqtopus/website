@@ -2,17 +2,12 @@ import { PageCTA, PageHero, ProductsShowcase, ComingSoon } from "@/components/se
 import { generateMetadata } from "@/lib/seo";
 import { PRODUCTS_LIVE } from "@/config/app";
 import { productsCopy } from "@/lib/content/pages/products";
+import { productsMetadata } from "@/lib/content/metadata";
 import { Metadata } from "next";
 
-export const metadata: Metadata = generateMetadata({
-  title: PRODUCTS_LIVE 
-    ? "Solutions We Build - Minoqtopus | Custom Software Examples"
-    : "Solutions Coming Soon - Minoqtopus",
-  description: PRODUCTS_LIVE
-    ? "Examples of custom software solutions we build: SaaS platforms, automation tools, and integrated systems. Tailored to your business needs with full API integrations."
-    : "Custom software solution examples coming soon. See the types of products we build for funded startups and SMBs.",
-  path: "/products"
-});
+export const metadata: Metadata = generateMetadata(
+  PRODUCTS_LIVE ? productsMetadata.live : productsMetadata.comingSoon
+);
 
 export default function ProductsPage() {
   const { hero, cta } = productsCopy;

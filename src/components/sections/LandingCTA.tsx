@@ -2,7 +2,6 @@
 
 import { CalendarIcon, LinkedInIcon } from "@/components/icons";
 import { homeCopy } from "@/lib/content";
-import { APP_CONFIG } from "@/config";
 
 import { CTAButton, CTASectionProps } from '@/types';
 

@@ -1,5 +1,13 @@
 // SEO Type Definitions (simplified for landing page needs)
 
+export interface MetadataConfig {
+  title: string;
+  description: string;
+  keywords?: string;
+  path: string;
+  image?: string;
+}
+
 export interface StructuredData {
   "@context": string;
   "@type": string;

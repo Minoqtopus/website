@@ -1,8 +1,10 @@
-"use client";
-
+import { Metadata } from "next";
 import { LandingHero } from "@/components/sections";
-import { getOrganizationStructuredData } from "@/lib/seo";
+import { getOrganizationStructuredData, generateMetadata } from "@/lib/seo";
+import { homeMetadata } from "@/lib/content/metadata";
 import Script from "next/script";
+
+export const metadata: Metadata = generateMetadata(homeMetadata);
 
 export default function Home() {
   const structuredData = getOrganizationStructuredData();

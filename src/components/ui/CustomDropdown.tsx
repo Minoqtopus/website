@@ -22,7 +22,6 @@ export function CustomDropdown({
   required = false 
 }: CustomDropdownProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [isFocused, setIsFocused] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -30,7 +29,6 @@ export function CustomDropdown({
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsOpen(false);
-        setIsFocused(false);
         // Remove focus styling
         if (buttonRef.current) {
           buttonRef.current.style.boxShadow = 'none';
@@ -46,12 +44,9 @@ export function CustomDropdown({
   const handleSelect = (option: string) => {
     onChange(option);
     setIsOpen(false);
-    // Keep focus styling when selecting an option
-    setIsFocused(true);
   };
 
   const handleFocus = () => {
-    setIsFocused(true);
     if (buttonRef.current) {
       buttonRef.current.style.outline = 'none';
       buttonRef.current.style.boxShadow = '0 0 0 2px rgb(187 247 208), 0 0 0 1px rgb(34 197 94)';
@@ -63,7 +58,6 @@ export function CustomDropdown({
     // Only blur if we're not clicking inside the dropdown
     const relatedTarget = e.relatedTarget as HTMLElement;
     if (!dropdownRef.current?.contains(relatedTarget)) {
-      setIsFocused(false);
       if (buttonRef.current) {
         buttonRef.current.style.boxShadow = 'none';
         buttonRef.current.style.borderColor = 'rgb(209 213 219)';
