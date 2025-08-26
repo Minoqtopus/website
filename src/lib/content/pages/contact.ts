@@ -100,7 +100,8 @@ export const contactCopy = {
     },
     submitButton: "Send Message",
     successMessage: "Thank you! We'll be in touch within 24 hours.",
-    errorMessage: "Something went wrong. Please try again or email us directly."
+    errorMessage: "Something went wrong. Please try again or email us directly.",
+    rateLimitMessage: "Please wait a moment before submitting again."
   },
   faq: {
     title: "Frequently Asked Questions",

@@ -1,8 +1,11 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ScrollReveal, CustomDropdown, CustomInput, CustomTextarea } from "@/components/ui";
 import { contactCopy } from "@/lib/content/pages/contact";
+import { EmailService } from '@/lib/services/email';
+import { EMAIL_CONFIG } from '@/config';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export function ContactForm() {
   const { form } = contactCopy;
@@ -15,16 +18,63 @@ export function ContactForm() {
     message: ''
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [lastSubmitTime, setLastSubmitTime] = useState<number>(0);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+
+  // Initialize EmailJS when component mounts
+  useEffect(() => {
+    if (EMAIL_CONFIG.serviceId && EMAIL_CONFIG.templateId && EMAIL_CONFIG.publicKey) {
+      EmailService.initialize({
+        serviceId: EMAIL_CONFIG.serviceId,
+        templateId: EMAIL_CONFIG.templateId,
+        publicKey: EMAIL_CONFIG.publicKey
+      });
+    }
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus('loading');
     
-    // Simulate form submission
-    // In production, replace with actual API call
-    setTimeout(() => {
-      console.log('Form submitted:', formData);
-      setStatus('success');
+    // Rate limiting: Prevent submissions within 10 seconds
+    const now = Date.now();
+    if (now - lastSubmitTime < 10000) {
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 3000);
+      return;
+    }
+    
+    // Execute invisible reCAPTCHA if configured
+    if (EMAIL_CONFIG.recaptchaSiteKey && recaptchaRef.current) {
+      recaptchaRef.current.execute();
+      return; // Will continue in handleRecaptchaChange
+    }
+    
+    // If no reCAPTCHA, proceed directly
+    await submitForm();
+  };
+
+  const submitForm = async () => {
+    await submitFormWithToken(recaptchaToken || undefined);
+  };
+
+  const submitFormWithToken = async (token?: string | null) => {
+    setStatus('loading');
+    setLastSubmitTime(Date.now());
+    
+    try {
+      // Check if EmailJS is configured
+      if (!EMAIL_CONFIG.serviceId || !EMAIL_CONFIG.templateId || !EMAIL_CONFIG.publicKey) {
+        console.warn('EmailJS not configured. Please add credentials to .env.local');
+        console.log('Form data:', formData);
+        setStatus('success');
+      } else {
+        // Send email via EmailJS with reCAPTCHA token
+        await EmailService.sendContactForm(formData, token || undefined);
+        setStatus('success');
+      }
+      
+      // Reset form and reCAPTCHA
       setFormData({
         name: '',
         email: '',
@@ -33,10 +83,17 @@ export function ContactForm() {
         budget: '',
         message: ''
       });
+      setRecaptchaToken(null);
+      recaptchaRef.current?.reset();
       
       // Reset success message after 5 seconds
       setTimeout(() => setStatus('idle'), 5000);
-    }, 1000);
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setStatus('error');
+      // Reset error message after 5 seconds
+      setTimeout(() => setStatus('idle'), 5000);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -51,6 +108,16 @@ export function ContactForm() {
       ...formData,
       [name]: value
     });
+  };
+
+  const handleRecaptchaChange = async (token: string | null) => {
+    setRecaptchaToken(token);
+    
+    // For invisible reCAPTCHA, submit form automatically when token received
+    if (token && EMAIL_CONFIG.recaptchaSiteKey) {
+      // Pass the token directly instead of relying on state
+      await submitFormWithToken(token);
+    }
   };
 
   return (
@@ -177,18 +244,47 @@ export function ContactForm() {
               
               {status === 'error' && (
                 <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-700 rounded-xl">
-                  {form.errorMessage}
+                  {lastSubmitTime && Date.now() - lastSubmitTime < 10000 
+                    ? form.rateLimitMessage 
+                    : form.errorMessage}
                 </div>
               )}
 
+              {/* Invisible ReCAPTCHA */}
+              {EMAIL_CONFIG.recaptchaSiteKey && (
+                <ReCAPTCHA
+                  ref={recaptchaRef}
+                  size="invisible"
+                  sitekey={EMAIL_CONFIG.recaptchaSiteKey}
+                  onChange={handleRecaptchaChange}
+                />
+              )}
+
               {/* Submit Button */}
-              <button
-                type="submit"
-                disabled={status === 'loading'}
-                className="w-full bg-green-700 hover:bg-green-800 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {status === 'loading' ? 'Sending...' : form.submitButton}
-              </button>
+              <div className="relative">
+                <button
+                  type="submit"
+                  disabled={status === 'loading'}
+                  className="w-full bg-green-700 hover:bg-green-800 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {status === 'loading' ? 'Sending...' : form.submitButton}
+                </button>
+                
+                {/* reCAPTCHA Badge Notice */}
+                {EMAIL_CONFIG.recaptchaSiteKey && (
+                  <p className="text-xs text-gray-500 mt-2 text-center">
+                    This site is protected by reCAPTCHA and the Google{' '}
+                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="underline">
+                      Privacy Policy
+                    </a>{' '}
+                    and{' '}
+                    <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="underline">
+                      Terms of Service
+                    </a>{' '}
+                    apply.
+                  </p>
+                )}
+              </div>
             </form>
           </div>
         </ScrollReveal>

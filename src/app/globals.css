@@ -70,9 +70,15 @@ body {
 
 /* Only keep animations that are actually used */
 
-/* Smooth scrolling */
+/* Smooth scrolling and prevent horizontal overflow */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Prevent horizontal overflow on body */
+body {
+  overflow-x: hidden;
 }
 
 /* Custom scrollbar */
@@ -134,4 +140,9 @@ html {
 
 .text-transparent {
   color: rgb(26, 103, 75) !important;
+}
+
+/* Hide reCAPTCHA badge since privacy policy text is displayed */
+.grecaptcha-badge { 
+  visibility: hidden;
 }
