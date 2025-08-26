@@ -23,9 +23,9 @@
   --color-gray-600: rgb(75 85 99);
   --color-gray-900: rgb(17 24 39);
   
-  /* Lato font system */
-  --font-display: var(--font-lato), 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-text: var(--font-lato), 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* Montserrat font system - simplified without system fallbacks */
+  --font-display: 'Montserrat', var(--font-montserrat), sans-serif;
+  --font-text: 'Montserrat', var(--font-montserrat), sans-serif;
   
   /* Refined spacing scale */
   --space-xs: 0.25rem;
@@ -66,9 +66,66 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+/* Force Montserrat font on all elements - this must come after Tailwind import */
+html {
+  font-family: 'Montserrat', var(--font-montserrat), sans-serif !important;
+}
+
+body {
+  font-family: 'Montserrat', var(--font-montserrat), sans-serif !important;
+}
+
+* {
+  font-family: 'Montserrat', var(--font-montserrat), sans-serif !important;
+}
+
+/* Ensure all common elements use Montserrat with high specificity */
+h1, h2, h3, h4, h5, h6,
+p, span, div, a, button, input, textarea, label,
+li, ul, ol, table, th, td,
+section, article, aside, nav, header, footer, main {
+  font-family: 'Montserrat', var(--font-montserrat), sans-serif !important;
+}
+
+/* Override any Tailwind font utilities that might be using system fonts */
+.font-sans,
+.font-display,
+.font-text {
+  font-family: 'Montserrat', var(--font-montserrat), sans-serif !important;
+}
+
+/* Override any potential Tailwind base styles with high specificity */
+.text-sm, .text-base, .text-lg, .text-xl, .text-2xl, .text-3xl,
+.text-xs, .text-4xl, .text-5xl, .text-6xl, .text-7xl, .text-8xl, .text-9xl {
+  font-family: 'Montserrat', var(--font-montserrat), sans-serif !important;
+}
+
 /* Apple-level animations - unique ones not in Tailwind config */
 
 /* Only keep animations that are actually used */
+
+/* Mobile menu animations */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 /* Smooth scrolling and prevent horizontal overflow */
 html {

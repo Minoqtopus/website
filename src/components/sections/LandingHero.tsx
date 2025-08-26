@@ -1,9 +1,8 @@
 "use client";
 
-import { ScrollReveal, BackgroundDecorations } from "@/components/ui";
-import { LandingCTA } from "./LandingCTA";
+import { BackgroundDecorations, ScrollReveal } from "@/components/ui";
 import { homeCopy } from "@/lib/content";
-import Image from "next/image";
+import { LandingCTA } from "./LandingCTA";
 
 import { HeroProps } from "@/types";
 
@@ -20,7 +19,7 @@ export function LandingHero({ className = "" }: HeroProps) {
         <div className="max-w-6xl mx-auto text-center">
           {/* Main Heading */}
           <ScrollReveal delay={0.2}>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 sm:mb-8 md:mb-10 tracking-tight text-gray-900 leading-[1.1] sm:leading-[0.9] font-display">
+            <h1 className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 sm:mb-8 md:mb-10 tracking-tight text-gray-900 leading-[1.1] sm:leading-[1.1] font-display">
               {hero.title.part1}{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-700 via-green-600 to-green-700 relative inline-block">
                 {hero.title.highlight}

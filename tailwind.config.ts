@@ -9,6 +9,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        'nav': '786px', // Custom breakpoint for navigation
+      },
+      fontFamily: {
+        'sans': ['var(--font-montserrat)', 'Montserrat', 'sans-serif'],
+        'display': ['var(--font-montserrat)', 'Montserrat', 'sans-serif'],
+        'text': ['var(--font-montserrat)', 'Montserrat', 'sans-serif'],
+      },
       backdropBlur: {
         xs: '2px',
         sm: '4px',

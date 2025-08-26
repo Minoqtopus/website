@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Lato } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import { pageMetadata } from "@/lib/seo";
 import "./globals.css";
 
-const lato = Lato({
-  weight: ['100', '300', '400', '700', '900'],
+const montserrat = Montserrat({
+  weight: ['100', '300', '400', '500', '600', '700', '800', '900'],
   subsets: ["latin"],
-  variable: "--font-lato",
+  variable: "--font-montserrat",
   display: 'swap',
 });
 
@@ -33,7 +33,7 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
       <body
-        className={`${lato.variable} antialiased`}
+        className={`${montserrat.variable} antialiased`}
       >
         {children}
       </body>
