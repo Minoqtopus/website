@@ -3,7 +3,7 @@
 
 export const URLS = {
   // External service URLs
-  upwork: "https://www.upwork.com/agencies/1959684780864087503/",
+  upwork: "https://www.upwork.com/freelancers/~0101c00d436731f83a/",
   calendly: "https://calendly.com/minoqtopus/30min",
   linkedin: "https://www.linkedin.com/company/minoqtopus-agency/",
 
