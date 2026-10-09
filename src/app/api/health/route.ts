@@ -3,12 +3,12 @@ import { NextResponse } from "next/server";
 /**
  * Reports whether the server-side configuration this app needs is present.
  *
- * Deliberately returns only booleans and lengths — never a value, never a
- * prefix — so it is safe to call on a public deployment while diagnosing a
+ * Returns only names, booleans and lengths — never a value, never a prefix —
+ * so it is safe to call on a public deployment while diagnosing a
  * misconfigured environment.
  */
 export async function GET() {
-  const names = [
+  const required = [
     "NEXT_PUBLIC_SUPABASE_URL",
     "SUPABASE_SERVICE_ROLE_KEY",
     "ADMIN_PASSWORD",
@@ -17,11 +17,21 @@ export async function GET() {
   ] as const;
 
   const env = Object.fromEntries(
-    names.map((name) => {
+    required.map((name) => {
       const value = process.env[name];
       return [name, { set: Boolean(value), length: value?.length ?? 0 }];
     })
   );
 
-  return NextResponse.json({ env, runtime: process.env.NEXT_RUNTIME ?? "nodejs" });
+  // Names only. Shows what the deployment actually received, so a misspelled
+  // key is visible without exposing anything it holds.
+  const present = Object.keys(process.env)
+    .filter((n) => /SUPA|ADMIN|SITE_URL|SERVICE_ROLE/i.test(n))
+    .sort();
+
+  return NextResponse.json({
+    env,
+    presentNames: present,
+    totalEnvCount: Object.keys(process.env).length,
+  });
 }
