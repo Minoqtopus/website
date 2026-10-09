@@ -1,125 +1,125 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #1d1d1f;
-  
-  /* Brand Colors */
-  --color-primary: #1a7753;
-  --color-linkedin: #0077B5;
-  
-  /* Green Palette */
-  --color-green-50: rgb(240 253 244);
-  --color-green-100: rgb(220 252 231);
-  --color-green-200: rgb(187 247 208);
-  --color-green-300: rgb(134 239 172);
-  --color-green-400: rgb(74 222 128);
-  --color-green-600: rgb(22 163 74);
-  --color-green-700: rgb(21 128 61);
-  --color-green-800: rgb(22 101 52);
-  
-  /* Gray Palette */
-  --color-gray-500: rgb(107 114 128);
-  --color-gray-600: rgb(75 85 99);
-  --color-gray-900: rgb(17 24 39);
-  
-  /* Montserrat font system - simplified without system fallbacks */
-  --font-display: 'Montserrat', var(--font-montserrat), sans-serif;
-  --font-text: 'Montserrat', var(--font-montserrat), sans-serif;
-  
-  /* Refined spacing scale */
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  --space-2xl: 3rem;
-  --space-3xl: 4rem;
-  --space-4xl: 6rem;
-  
-  /* Sophisticated shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  
-  /* Smooth transitions */
-  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+@theme {
+  /* Neutrals: slight green bias so they sit with the emerald accent
+     rather than fighting it. */
+  --color-stone-50: #f6f8f7;
+  --color-stone-100: #eef2f0;
+  --color-stone-200: #dde4e0;
+  --color-stone-300: #c3cdc8;
+  --color-stone-400: #97a39d;
+  --color-stone-500: #66736c;
+  --color-stone-600: #4e5a55;
+  --color-stone-700: #3a4440;
+  --color-stone-800: #232b28;
+  --color-stone-900: #161c1a;
+  --color-stone-950: #0a0e0c;
+
+  /* Brand accent. Class names stay `gold-*` so the existing design keeps
+     its semantics; the values are Minoqtopus emerald, built around the
+     registered brand color #1a7753.
+
+     The design places the accent on both dark and light grounds, and no single
+     hue clears 4.5:1 on both. So gold-500 — the most-used step — is bound to
+     --accent-on-surface, which resolves per section (see .on-dark / .on-light
+     below). The fixed steps are each tuned to one ground:
+       400  dark grounds   — 8.0:1 on ink
+       600  light grounds  — 5.5:1 on white  (registered brand colour)
+       700  light grounds  — 8.0:1 on white */
+  --color-gold-50: #e8f6ef;
+  --color-gold-400: #2bbd7b;
+  --color-gold-500: #1a7753;
+  --color-gold-600: #1a7753;
+  --color-gold-700: #145c40;
+  --color-gold-800: #0f442f;
+
+  /* Deep brand ground for the footer: the emerald darkened rather than a
+     neutral black, so the footer reads as part of the brand. */
+  --color-brand-deep: #0f2a20;
+
+  /* Semantic, kept separate from the brand accent. 5.7:1 on white. */
+  --color-danger: #c81e1e;
+
+  --font-display: var(--font-syne), system-ui, sans-serif;
+  --font-body: var(--font-dm-sans), system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-display);
-  --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+html {
+  scroll-behavior: smooth;
+}
+
+/* The accent must stay legible on both grounds, and no single hue clears
+   4.5:1 against ink AND white. So the accent text utility resolves per
+   surface: the registered brand colour on light (5.5:1), a brighter emerald
+   inside dark sections (8.0:1). Scoped to .text-gold-500 because that is the
+   step the design uses on both grounds; gold-400/600/700 are ground-specific
+   by convention and keep their fixed values. */
+section.bg-stone-950 .text-gold-500,
+section.bg-stone-900 .text-gold-500,
+footer.bg-stone-950 .text-gold-500,
+header .glass-dark .text-gold-500,
+header .glass-dark-solid .text-gold-500 {
+  color: #2bbd7b;
+}
+
+/* A dark chip sitting inside a light section keeps the light-ground value
+   from leaking onto it. */
+section.bg-white .bg-stone-950 .text-gold-500,
+section.bg-stone-50 .bg-stone-950 .text-gold-500 {
+  color: #2bbd7b;
+}
+
+/* Same treatment for accent borders inside dark sections. */
+section.bg-stone-950 .border-gold-500,
+footer.bg-stone-950 .border-gold-500 {
+  border-color: #2bbd7b;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-text);
-  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  font-family: var(--font-body);
+  color: #0a0e0c;
+  background-color: #f6f8f7;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
 }
 
-/* Force Montserrat font on all elements - this must come after Tailwind import */
-html {
-  font-family: 'Montserrat', var(--font-montserrat), sans-serif !important;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
 }
 
-body {
-  font-family: 'Montserrat', var(--font-montserrat), sans-serif !important;
+::selection {
+  background-color: #1a7753;
+  color: #f6f8f7;
 }
 
-* {
-  font-family: 'Montserrat', var(--font-montserrat), sans-serif !important;
+::-webkit-scrollbar {
+  width: 6px;
 }
 
-/* Ensure all common elements use Montserrat with high specificity */
-h1, h2, h3, h4, h5, h6,
-p, span, div, a, button, input, textarea, label,
-li, ul, ol, table, th, td,
-section, article, aside, nav, header, footer, main {
-  font-family: 'Montserrat', var(--font-montserrat), sans-serif !important;
+::-webkit-scrollbar-track {
+  background: #eef2f0;
 }
 
-/* Override any Tailwind font utilities that might be using system fonts */
-.font-sans,
-.font-display,
-.font-text {
-  font-family: 'Montserrat', var(--font-montserrat), sans-serif !important;
+::-webkit-scrollbar-thumb {
+  background: #97a39d;
+  border-radius: 3px;
 }
 
-/* Override any potential Tailwind base styles with high specificity */
-.text-sm, .text-base, .text-lg, .text-xl, .text-2xl, .text-3xl,
-.text-xs, .text-4xl, .text-5xl, .text-6xl, .text-7xl, .text-8xl, .text-9xl {
-  font-family: 'Montserrat', var(--font-montserrat), sans-serif !important;
+::-webkit-scrollbar-thumb:hover {
+  background: #66736c;
 }
 
-/* Apple-level animations - unique ones not in Tailwind config */
-
-/* Only keep animations that are actually used */
-
-/* Mobile menu animations */
-@keyframes slideInLeft {
+@keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
@@ -127,42 +127,83 @@ section, article, aside, nav, header, footer, main {
   }
 }
 
-/* Smooth scrolling and prevent horizontal overflow */
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
-/* Prevent horizontal overflow on body */
-body {
-  overflow-x: hidden;
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+.animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-fill-mode: forwards;
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
+.animate-marquee {
+  animation: marquee 40s linear infinite;
 }
 
-::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
+.text-gradient-gold {
+  background: linear-gradient(135deg, #2fd68a 0%, #1a7753 55%, #145c40 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.3);
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Focus states for accessibility */
-*:focus-visible {
-  outline: 2px solid #007AFF;
-  outline-offset: 2px;
+.glass-dark {
+  background: rgba(10, 14, 12, 0.72);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
 }
 
-/* Reduced motion support */
+.glass-dark-solid {
+  background: rgba(10, 14, 12, 0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.dot-pattern {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -170,36 +211,6 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
-}
-
-/* Mobile optimizations */
-@media (max-width: 640px) {
-  .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  
-  /* Ensure text doesn't overflow on very small screens */
-  h1 {
-    word-wrap: break-word;
-    hyphens: auto;
-  }
-  
-  /* Better touch targets on mobile */
-  button,
-  a {
-    min-height: 44px;
-    min-width: 44px;
-  }
-}
-
-
-.text-transparent {
-  color: rgb(26, 103, 75) !important;
-}
-
-/* Hide reCAPTCHA badge since privacy policy text is displayed */
-.grecaptcha-badge { 
-  visibility: hidden;
 }
