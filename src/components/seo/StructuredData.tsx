@@ -28,7 +28,34 @@ const organizationSchema = {
     email: "minoqtopus.agency@gmail.com",
     availableLanguage: ["English"],
   },
+  foundingDate: "2026-10-09",
+  areaServed: "Worldwide",
+  knowsAbout: [
+    "Custom software development",
+    "Web application development",
+    "Mobile application development",
+    "API integrations",
+    "SaaS development",
+    "AI integration",
+  ],
 };
+
+// Declares the site's primary sections. Google uses this as one input when
+// deciding whether to show sitelinks under the main result; it does not
+// guarantee them, and the choice stays Google's.
+const navigationSchema = [
+  { name: "Services", path: "/services", description: "Full-stack engineering, mobile, cloud, AI and custom agent development." },
+  { name: "Projects", path: "/projects", description: "Case studies from products we have designed, built and shipped." },
+  { name: "About", path: "/about", description: "Who we are and how we run engagements." },
+  { name: "Careers", path: "/jobs", description: "Open roles at Minoqtopus." },
+  { name: "Contact", path: "/contact", description: "Start a project or book a consultation." },
+].map((item) => ({
+  "@context": "https://schema.org",
+  "@type": "SiteNavigationElement",
+  name: item.name,
+  description: item.description,
+  url: `${SITE_URL}${item.path}`,
+}));
 
 const websiteSchema = {
   "@context": "https://schema.org",
@@ -124,6 +151,7 @@ const portfolioSchema = {
 export default function StructuredData() {
   const schemas = [
     organizationSchema,
+    ...navigationSchema,
     websiteSchema,
     professionalServiceSchema,
     faqSchema,
