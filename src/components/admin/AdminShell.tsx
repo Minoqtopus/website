@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import AdminLogoutButton from "@/components/admin/AdminLogoutButton";
+import AdminNav from "@/components/admin/AdminNav";
 
 export default function AdminShell({
   title,
@@ -25,20 +26,7 @@ export default function AdminShell({
                 Admin
               </span>
             </Link>
-            <nav className="hidden sm:flex items-center gap-1 text-sm">
-              <Link
-                href="/admin/contact"
-                className="rounded-full px-3 py-1.5 text-stone-300 hover:text-white hover:bg-white/10 transition-colors"
-              >
-                Contact
-              </Link>
-              <Link
-                href="/admin/applications"
-                className="rounded-full px-3 py-1.5 text-stone-300 hover:text-white hover:bg-white/10 transition-colors"
-              >
-                Applications
-              </Link>
-            </nav>
+<AdminNav />
           </div>
           <AdminLogoutButton />
         </div>
@@ -49,7 +37,7 @@ export default function AdminShell({
             {title}
           </h1>
           {description ? (
-            <p className="mt-2 text-stone-500 max-w-2xl leading-relaxed">
+            <p className="mt-2 text-stone-600 max-w-2xl leading-relaxed">
               {description}
             </p>
           ) : null}
