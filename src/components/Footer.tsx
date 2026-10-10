@@ -66,6 +66,10 @@ const footerLinks = {
     { name: "Contact", href: "/contact" },
     { name: "Services", href: "/services" },
   ],
+  legal: [
+    { name: "Privacy Policy", href: "/privacy" },
+    { name: "Terms of Service", href: "/terms" },
+  ],
 };
 
 export default function Footer() {
@@ -78,7 +82,7 @@ export default function Footer() {
     <footer className="bg-brand-deep text-white">
       <div className="max-w-7xl mx-auto px-6 pt-20 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-4">
             <Logo variant="light" />
             <p className="mt-6 text-white/85 leading-relaxed max-w-sm">
               We engineer digital products that define industries. From
@@ -98,7 +102,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-2">
             <h4 className="text-sm font-semibold uppercase tracking-wider text-white mb-5">
               Services
             </h4>
@@ -122,6 +126,24 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-white/85 hover:text-white transition-colors duration-200 text-sm"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="lg:col-span-2">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-white mb-5">
+              Legal
+            </h4>
+            <ul className="space-y-3">
+              {footerLinks.legal.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
