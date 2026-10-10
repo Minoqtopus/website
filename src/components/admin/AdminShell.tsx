@@ -13,7 +13,7 @@ export default function AdminShell({
   children: ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-stone-50">
+    <div className="min-h-[calc(100vh-4rem)] bg-stone-50">
       {/* Brand-deep matches the public footer, so the admin reads as the same
           product rather than a separate tool. */}
       <header className="sticky top-0 z-40 border-b border-white/10 bg-brand-deep/95 backdrop-blur">

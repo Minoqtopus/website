@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
 import Logo from "@/components/ui/Logo";
 import UpworkIcon from "@/components/icons/UpworkIcon";
@@ -73,11 +70,6 @@ const footerLinks = {
 };
 
 export default function Footer() {
-  const pathname = usePathname();
-  if (pathname.startsWith("/admin")) {
-    return null;
-  }
-
   return (
     <footer className="bg-brand-deep text-white">
       <div className="max-w-7xl mx-auto px-6 pt-20 pb-8">
