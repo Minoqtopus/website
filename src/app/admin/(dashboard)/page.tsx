@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight, Briefcase, Mail } from "lucide-react";
 import AdminShell from "@/components/admin/AdminShell";
+import StatusBadge from "@/components/admin/StatusBadge";
 import {
   ContactSubmission,
   getSupabaseAdmin,
@@ -86,7 +87,7 @@ export default async function AdminHomePage() {
       title="Dashboard"
       description="Review new contact inquiries and job applications in one place."
     >
-      <div className="mb-8 rounded-2xl border border-stone-200 bg-stone-950 text-white p-6 md:p-8 overflow-hidden relative">
+      <div className="mb-8 rounded-2xl border border-stone-200 bg-brand-deep text-white p-6 md:p-8 overflow-hidden relative">
         <div className="absolute inset-0 grid-pattern opacity-40" />
         <div className="absolute -top-16 -right-10 w-56 h-56 rounded-full bg-gold-600/15 blur-3xl" />
         <div className="relative flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
@@ -97,7 +98,7 @@ export default async function AdminHomePage() {
             <p className="font-display text-4xl font-bold tracking-tight">
               {totalNew} new item{totalNew === 1 ? "" : "s"}
             </p>
-            <p className="text-stone-400 mt-2 max-w-md leading-relaxed">
+            <p className="text-white/85 mt-2 max-w-md leading-relaxed">
               {(contactCount ?? 0) + (appCount ?? 0)} total submissions across contact and careers.
             </p>
           </div>
@@ -133,7 +134,7 @@ export default async function AdminHomePage() {
                   <card.icon className="w-4 h-4" />
                 </span>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-stone-400">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-gold-400">
                     {card.label}
                   </p>
                   <h2 className="font-display text-lg font-bold text-stone-950">
@@ -149,15 +150,9 @@ export default async function AdminHomePage() {
                 <p className="font-display text-4xl font-bold text-stone-950 tracking-tight">
                   {card.total}
                 </p>
-                <p className="text-sm text-stone-500 mt-1">{card.hint}</p>
+                <p className="text-sm text-stone-600 mt-1">{card.hint}</p>
               </div>
-              <span
-                className={`inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold ${
-                  card.newest > 0
-                    ? "bg-gold-50 text-gold-700"
-                    : "bg-stone-100 text-stone-500"
-                }`}
-              >
+              <span className={`inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold ${card.newest > 0 ? "bg-gold-50 text-gold-800 ring-1 ring-gold-600/20" : "bg-stone-100 text-stone-600 ring-1 ring-stone-200"}`}>
                 {card.newest} new
               </span>
             </div>
@@ -179,7 +174,7 @@ export default async function AdminHomePage() {
             </Link>
           </div>
           {contacts.length === 0 ? (
-            <p className="px-5 py-8 text-sm text-stone-500">No contact submissions yet.</p>
+            <p className="px-5 py-8 text-sm text-stone-600">No contact submissions yet.</p>
           ) : (
             <ul className="divide-y divide-stone-100">
               {contacts.map((row) => (
@@ -192,19 +187,11 @@ export default async function AdminHomePage() {
                       <p className="font-medium text-stone-950 truncate">
                         {row.first_name} {row.last_name}
                       </p>
-                      <p className="text-sm text-stone-500 truncate">{row.email}</p>
+                      <p className="text-sm text-stone-600 truncate">{row.email}</p>
                     </div>
                     <div className="text-right shrink-0">
-                      <span
-                        className={`inline-flex rounded-full px-2 py-0.5 text-[11px] font-semibold ${
-                          row.status === "new"
-                            ? "bg-gold-50 text-gold-700"
-                            : "bg-stone-100 text-stone-500"
-                        }`}
-                      >
-                        {row.status}
-                      </span>
-                      <p className="text-xs text-stone-400 mt-1">
+                      <StatusBadge status={row.status} />
+                      <p className="text-xs text-stone-600 mt-1">
                         {formatWhen(row.created_at)}
                       </p>
                     </div>
@@ -228,7 +215,7 @@ export default async function AdminHomePage() {
             </Link>
           </div>
           {applications.length === 0 ? (
-            <p className="px-5 py-8 text-sm text-stone-500">No job applications yet.</p>
+            <p className="px-5 py-8 text-sm text-stone-600">No job applications yet.</p>
           ) : (
             <ul className="divide-y divide-stone-100">
               {applications.map((row) => (
@@ -239,19 +226,11 @@ export default async function AdminHomePage() {
                   >
                     <div className="min-w-0">
                       <p className="font-medium text-stone-950 truncate">{row.full_name}</p>
-                      <p className="text-sm text-stone-500 truncate">{row.job_title}</p>
+                      <p className="text-sm text-stone-600 truncate">{row.job_title}</p>
                     </div>
                     <div className="text-right shrink-0">
-                      <span
-                        className={`inline-flex rounded-full px-2 py-0.5 text-[11px] font-semibold ${
-                          row.status === "new"
-                            ? "bg-gold-50 text-gold-700"
-                            : "bg-stone-100 text-stone-500"
-                        }`}
-                      >
-                        {row.status}
-                      </span>
-                      <p className="text-xs text-stone-400 mt-1">
+                      <StatusBadge status={row.status} />
+                      <p className="text-xs text-stone-600 mt-1">
                         {formatWhen(row.created_at)}
                       </p>
                     </div>

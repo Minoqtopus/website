@@ -91,7 +91,7 @@ export default function TableToolbar({
               {tab.label}
               <span
                 className={`rounded-full px-1.5 py-0.5 text-xs tabular-nums ${
-                  active ? "bg-stone-100 text-stone-600" : "text-stone-500"
+                  active ? "bg-stone-100 text-stone-700" : "text-stone-600"
                 }`}
               >
                 {tab.count}
@@ -103,7 +103,7 @@ export default function TableToolbar({
 
       <div className="relative flex-1 min-w-[220px]">
         <Search
-          className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-stone-400"
+          className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-stone-500"
           aria-hidden="true"
         />
         <input
@@ -119,7 +119,7 @@ export default function TableToolbar({
             type="button"
             onClick={() => setQuery("")}
             aria-label="Clear search"
-            className="absolute right-2 top-1/2 -translate-y-1/2 rounded-md p-1 text-stone-400 hover:text-stone-950 cursor-pointer"
+            className="absolute right-2 top-1/2 -translate-y-1/2 rounded-md p-1 text-stone-500 hover:text-stone-950 cursor-pointer"
           >
             <X className="h-4 w-4" />
           </button>
@@ -136,7 +136,7 @@ export default function TableToolbar({
 
       <span
         aria-live="polite"
-        className={`text-xs text-stone-500 transition-opacity ${
+        className={`text-xs text-stone-600 transition-opacity ${
           isPending ? "opacity-100" : "opacity-0"
         }`}
       >

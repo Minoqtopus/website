@@ -21,7 +21,7 @@ export default function AdminError({
   }, [error]);
 
   return (
-    <div className="min-h-screen bg-stone-100 flex items-center justify-center px-6">
+    <div className="min-h-screen bg-stone-50 flex items-center justify-center px-6">
       <div className="max-w-md w-full rounded-2xl border border-stone-200 bg-white p-8 text-center">
         <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-danger/10 text-danger mb-5">
           <AlertCircle className="h-6 w-6" aria-hidden="true" />
@@ -36,7 +36,7 @@ export default function AdminError({
         </p>
 
         {error.digest ? (
-          <p className="mt-3 font-mono text-xs text-stone-500">
+          <p className="mt-3 font-mono text-xs text-stone-600">
             Reference: {error.digest}
           </p>
         ) : null}

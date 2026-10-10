@@ -1,10 +1,15 @@
 import Image from "next/image";
+import type { ReactNode } from "react";
 import Link from "next/link";
 
 interface LogoProps {
   /** `light` renders for dark backgrounds, `dark` for light backgrounds. */
   variant?: "light" | "dark";
   size?: "sm" | "md" | "lg";
+  /** Where the mark links to. The admin uses its own dashboard root. */
+  href?: string;
+  /** Appended after the wordmark, e.g. an "Admin" tag. */
+  suffix?: ReactNode;
 }
 
 const sizes = {
@@ -13,13 +18,18 @@ const sizes = {
   lg: { w: 200, h: 43 },
 } as const;
 
-export default function Logo({ variant = "dark", size = "md" }: LogoProps) {
+export default function Logo({
+  variant = "dark",
+  size = "md",
+  href = "/",
+  suffix,
+}: LogoProps) {
   const { w, h } = sizes[size];
 
   return (
     <Link
-      href="/"
-      className="group flex items-center"
+      href={href}
+      className="group flex items-center gap-2.5"
       aria-label="Minoqtopus — home"
     >
       <Image
@@ -35,6 +45,7 @@ export default function Logo({ variant = "dark", size = "md" }: LogoProps) {
         }`}
         style={{ maxHeight: h }}
       />
+      {suffix}
     </Link>
   );
 }

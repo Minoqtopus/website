@@ -45,7 +45,7 @@ export default function ResumeDownloadButton({
         <Download className="w-4 h-4" />
         {loading ? "Preparing..." : `Download ${filename}`}
       </Button>
-      {error && <p className="mt-2 text-sm text-red-700">{error}</p>}
+      {error && <p className="mt-2 text-sm text-danger" role="alert">{error}</p>}
     </div>
   );
 }

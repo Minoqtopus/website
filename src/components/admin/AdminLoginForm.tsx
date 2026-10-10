@@ -4,6 +4,7 @@ import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Lock } from "lucide-react";
 import Button from "@/components/ui/Button";
+import Logo from "@/components/ui/Logo";
 
 export default function AdminLoginForm() {
   const router = useRouter();
@@ -37,15 +38,19 @@ export default function AdminLoginForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-stone-50 rounded-2xl p-8 border border-stone-200/80 w-full max-w-md"
+      className="bg-white rounded-2xl p-8 border border-stone-200 shadow-sm w-full max-w-md"
     >
+      <div className="flex justify-center mb-7">
+        <Logo size="md" href="/admin" />
+      </div>
+
       <div className="flex items-center gap-3 mb-6">
         <span className="w-10 h-10 rounded-xl bg-gold-50 text-gold-700 inline-flex items-center justify-center">
           <Lock className="w-4 h-4" />
         </span>
         <div>
           <h1 className="font-display text-xl font-bold text-stone-950">Admin login</h1>
-          <p className="text-sm text-stone-500">Enter the shared admin password.</p>
+          <p className="text-sm text-stone-600">Enter the shared admin password.</p>
         </div>
       </div>
 
@@ -64,7 +69,8 @@ export default function AdminLoginForm() {
       />
 
       {error && (
-        <p className="mb-4 text-sm text-red-700 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+        <p className="mb-4 text-sm text-danger bg-danger/5 border border-danger/20 rounded-xl px-4 py-3"
+          role="alert">
           {error}
         </p>
       )}
