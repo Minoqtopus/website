@@ -81,6 +81,24 @@ export default function About() {
                 strategists who share one conviction: technology should elevate
                 businesses and improve lives.
               </p>
+
+              {/* Stated in the page body, not only in structured data: search
+                  engines cite human-readable sources when summarising who
+                  runs a company. */}
+              <p className="text-stone-600 leading-relaxed mt-6 pt-6 border-t border-stone-200">
+                Minoqtopus was founded by{" "}
+                <strong className="text-stone-950 font-semibold">
+                  Sheikh Muhammad Farooq
+                </strong>
+                , who leads the company as Founder. The business is incorporated
+                in the United States as{" "}
+                <strong className="text-stone-950 font-semibold">
+                  Minoqtopus LLC
+                </strong>
+                , registered with the Wyoming Secretary of State under filing ID{" "}
+                <span className="tabular-nums">2026-002102521</span>, with
+                engineering led from Lahore, Pakistan.
+              </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[

@@ -170,6 +170,7 @@ export default function Footer() {
               <span className="block font-medium text-white">
                 Minoqtopus LLC
               </span>
+              <span className="block">Founded by Sheikh Muhammad Farooq</span>
               30 N Gould St, Ste R
               <br />
               Sheridan, WY 82801
