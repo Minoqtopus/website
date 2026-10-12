@@ -22,7 +22,6 @@ export default function CaseStudyImage({
       src={src}
       alt={alt}
       fill
-      unoptimized
       priority={priority}
       sizes={sizes}
       className={`${fit === "contain" ? "object-contain" : "object-cover"} ${className}`}
