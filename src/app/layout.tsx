@@ -13,7 +13,6 @@ const syne = Syne({
   display: "swap",
   // next/font generates a metric-matched fallback from these, so swapping in
   // the real face does not reflow the text around it.
-  fallback: ["system-ui", "sans-serif"],
   adjustFontFallback: true,
 });
 
@@ -21,7 +20,6 @@ const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-dm-sans",
   display: "swap",
-  fallback: ["system-ui", "sans-serif"],
   adjustFontFallback: true,
 });
 
