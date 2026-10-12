@@ -114,7 +114,7 @@ export default function About() {
                   <div className="font-display text-3xl font-bold text-stone-950">
                     {stat.value}
                   </div>
-                  <div className="text-stone-400 text-sm mt-1">{stat.label}</div>
+                  <div className="text-stone-500 text-sm mt-1">{stat.label}</div>
                 </div>
               ))}
             </div>

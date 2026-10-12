@@ -51,7 +51,7 @@ export default function ProjectCard({ study, priority = false }: ProjectCardProp
                 <div className="font-display text-lg font-bold text-stone-950">
                   {m.value}
                 </div>
-                <div className="text-stone-400 text-xs">{m.label}</div>
+                <div className="text-stone-500 text-xs">{m.label}</div>
               </div>
             ))}
           </div>

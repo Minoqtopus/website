@@ -41,7 +41,7 @@ export default function JobsPage() {
                         <Briefcase className="w-3.5 h-3.5" />
                         {job.department}
                       </span>
-                      <span className="text-xs font-medium text-stone-400">
+                      <span className="text-xs font-medium text-stone-500">
                         Posted {new Date(job.postedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
                       </span>
                     </div>
@@ -53,15 +53,15 @@ export default function JobsPage() {
                     </p>
                     <div className="flex flex-wrap gap-4 mt-4 text-sm text-stone-500">
                       <span className="inline-flex items-center gap-1.5">
-                        <MapPin className="w-4 h-4 text-stone-400" />
+                        <MapPin className="w-4 h-4 text-stone-500" />
                         {job.location}
                       </span>
                       <span className="inline-flex items-center gap-1.5">
-                        <Briefcase className="w-4 h-4 text-stone-400" />
+                        <Briefcase className="w-4 h-4 text-stone-500" />
                         {job.type}
                       </span>
                       <span className="inline-flex items-center gap-1.5">
-                        <Clock className="w-4 h-4 text-stone-400" />
+                        <Clock className="w-4 h-4 text-stone-500" />
                         {job.duration}
                       </span>
                     </div>

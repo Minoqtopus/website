@@ -33,7 +33,7 @@ export default function Testimonials() {
                   <div className="font-semibold text-stone-950 text-sm">
                     {item.author}
                   </div>
-                  <div className="text-stone-400 text-xs">
+                  <div className="text-stone-500 text-xs">
                     {item.role}, {item.company}
                   </div>
                 </div>

@@ -54,7 +54,7 @@ export default function Contact() {
                         <item.icon className="w-4 h-4" />
                       </div>
                       <div>
-                        <div className="text-xs font-semibold uppercase tracking-wider text-stone-400 mb-0.5">
+                        <div className="text-xs font-semibold uppercase tracking-wider text-stone-500 mb-0.5">
                           {item.label}
                         </div>
                         <div className="text-stone-950 font-medium group-hover:text-gold-600 transition-colors duration-200">
