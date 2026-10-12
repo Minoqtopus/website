@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StructuredData from "@/components/seo/StructuredData";
+import RevealScript from "@/components/motion/RevealScript";
 
 const syne = Syne({
   subsets: ["latin"],
@@ -48,6 +49,7 @@ export default function RootLayout({
     <html lang="en" className={`${syne.variable} ${dmSans.variable} scroll-smooth`}>
       <body className="font-body antialiased">
         <StructuredData />
+        <RevealScript />
         <Navbar />
         <main>{children}</main>
         <Footer />

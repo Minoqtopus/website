@@ -1,10 +1,5 @@
 "use client";
 
-import {
-  animate,
-  useInView,
-  useReducedMotion,
-} from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
 interface CountUpProps {
@@ -17,43 +12,74 @@ function parse(value: string) {
   const match = value.match(/^(\D*)([\d.]+)(.*)$/);
   if (!match) return null;
   const [, prefix, digits, suffix] = match;
-  return { prefix, target: parseFloat(digits), suffix, decimals: (digits.split(".")[1] || "").length };
+  return {
+    prefix,
+    target: parseFloat(digits),
+    suffix,
+    decimals: (digits.split(".")[1] || "").length,
+  };
 }
 
 /**
  * Counts up to the value when it scrolls into view.
  *
- * Renders the final value immediately when motion is reduced, when the string
- * has no number to animate, or before hydration — the figure is content, so it
- * must never depend on the animation having run.
+ * Uses requestAnimationFrame rather than an animation library: this ran on
+ * Motion's `animate()`, which cost far more than the effect is worth.
+ *
+ * The real value renders on the server and whenever motion is reduced, so the
+ * figure never depends on the animation having run.
  */
 export default function CountUp({ value }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.5 });
-  const reduced = useReducedMotion();
-  const parsed = parse(value);
   const [display, setDisplay] = useState(value);
+  const parsed = parse(value);
 
   useEffect(() => {
-    if (!parsed || reduced || !inView) return;
+    const el = ref.current;
+    if (!el || !parsed) return;
 
-    const controls = animate(0, parsed.target, {
-      duration: 0.9,
-      ease: [0.16, 1, 0.3, 1],
-      onUpdate(latest) {
-        setDisplay(
-          `${parsed.prefix}${latest.toFixed(parsed.decimals)}${parsed.suffix}`
-        );
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      !("IntersectionObserver" in window)
+    ) {
+      return;
+    }
+
+    let frame = 0;
+    const DURATION = 900;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (!entries[0].isIntersecting) return;
+        io.disconnect();
+
+        const start = performance.now();
+        const tick = (now: number) => {
+          const t = Math.min(1, (now - start) / DURATION);
+          // Same easing curve the rest of the site uses.
+          const eased = 1 - Math.pow(1 - t, 3);
+          const current = parsed.target * eased;
+          setDisplay(
+            `${parsed.prefix}${current.toFixed(parsed.decimals)}${parsed.suffix}`
+          );
+          if (t < 1) frame = requestAnimationFrame(tick);
+          else setDisplay(value);
+        };
+        frame = requestAnimationFrame(tick);
       },
-    });
+      { threshold: 0.5 }
+    );
 
-    return () => controls.stop();
-  }, [inView, reduced, parsed?.target, parsed?.prefix, parsed?.suffix, parsed?.decimals]);
+    io.observe(el);
+    return () => {
+      io.disconnect();
+      cancelAnimationFrame(frame);
+    };
+  }, [value, parsed?.target, parsed?.prefix, parsed?.suffix, parsed?.decimals]);
 
-  // Start from the real value so SSR and the pre-hydration frame are correct.
   return (
     <span ref={ref} className="tabular-nums">
-      {parsed && inView && !reduced ? display : value}
+      {display}
     </span>
   );
 }

@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Code2,
   Smartphone,
@@ -12,7 +10,6 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import SectionHeader from "@/components/ui/SectionHeader";
-import Stagger, { StaggerItem } from "@/components/motion/Stagger";
 
 const services = [
   {
@@ -84,9 +81,13 @@ export default function Services() {
           description="We combine deep technical expertise with strategic thinking to build products that outperform the competition."
         />
 
-        <Stagger className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div
+          data-reveal
+          data-reveal-stagger
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-5"
+        >
           {services.map((service) => (
-            <StaggerItem
+            <div
               key={service.title}
               className={`group relative rounded-2xl p-8 transition-all duration-300 cursor-pointer ${
                 service.featured
@@ -143,9 +144,9 @@ export default function Services() {
               >
                 <ArrowUpRight className="w-5 h-5" />
               </Link>
-            </StaggerItem>
+            </div>
           ))}
-        </Stagger>
+        </div>
       </div>
     </section>
   );
