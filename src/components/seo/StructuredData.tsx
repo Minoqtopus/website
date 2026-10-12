@@ -28,11 +28,19 @@ const organizationSchema = {
     email: "minoqtopus.agency@gmail.com",
     availableLanguage: ["English"],
   },
-  foundingDate: "2026-10-09",
+  // The brand and its web presence date from 2024; the Wyoming LLC was
+  // registered later, so the two are recorded separately rather than
+  // collapsing one into the other.
+  foundingDate: "2024",
   founder: {
     "@type": "Person",
     name: "Sheikh Muhammad Farooq",
     jobTitle: "Founder",
+  },
+  identifier: {
+    "@type": "PropertyValue",
+    propertyID: "Wyoming Secretary of State Filing ID",
+    value: "2026-002102521",
   },
   numberOfEmployees: { "@type": "QuantitativeValue", minValue: 1 },
   areaServed: "Worldwide",
