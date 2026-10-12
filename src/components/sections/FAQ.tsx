@@ -8,9 +8,9 @@ const faqs = [
       "Minoqtopus offers full-stack software development, mobile app development, cloud and DevOps, product design, e-commerce solutions, and AI engineering for startups and enterprises.",
   },
   {
-    question: "Can I hire Minoqtopus as a freelance development team?",
+    question: "Does Minoqtopus work on a project basis or long term?",
     answer:
-      "Yes. Minoqtopus works as a freelance software engineering studio and dedicated development team, offering project-based delivery and long-term engineering partnerships.",
+      "Both. Minoqtopus LLC takes on fixed-scope projects with defined deliverables, and also works as an embedded engineering partner on longer engagements.",
   },
   {
     question: "What industries does this IT business serve?",
@@ -32,7 +32,7 @@ export default function FAQ() {
           label="FAQ"
           title="Software company"
           highlight="questions."
-          description="Common questions about hiring Minoqtopus as your software engineering company, freelance development team, or IT business partner."
+          description="Common questions about working with Minoqtopus LLC as your software development partner."
           align="left"
           className="mb-12"
         />

@@ -19,7 +19,7 @@ const organizationSchema = {
   logo: `${SITE_URL}/images/brand/logo.png`,
   image: `${SITE_URL}/opengraph-image.jpg`,
   description:
-    "Minoqtopus is a software engineering company and freelance development studio building web, mobile, SaaS, and AI products.",
+    "Minoqtopus LLC is a software company registered in Wyoming, United States, building custom web and mobile applications, SaaS products and AI integrations.",
   email: "minoqtopus.agency@gmail.com",
   sameAs: socialUrls,
   contactPoint: {
@@ -29,6 +29,12 @@ const organizationSchema = {
     availableLanguage: ["English"],
   },
   foundingDate: "2026-10-09",
+  founder: {
+    "@type": "Person",
+    name: "Sheikh Muhammad Farooq",
+    jobTitle: "Founder",
+  },
+  numberOfEmployees: { "@type": "QuantitativeValue", minValue: 1 },
   areaServed: "Worldwide",
   knowsAbout: [
     "Custom software development",
@@ -63,7 +69,7 @@ const websiteSchema = {
   name: SITE_NAME,
   url: SITE_URL,
   description:
-    "Premium software company and freelance IT business for custom software development.",
+    "Official website of Minoqtopus LLC, a US-registered custom software development company.",
   publisher: {
     "@type": "Organization",
     name: SITE_NAME,
@@ -82,7 +88,7 @@ const professionalServiceSchema = {
   url: SITE_URL,
   image: `${SITE_URL}/opengraph-image.jpg`,
   description:
-    "Software engineering company offering freelance development, full-stack engineering, mobile apps, cloud infrastructure, and AI solutions.",
+    "Custom software development company offering full-stack engineering, mobile apps, cloud infrastructure, SaaS platforms and AI integration.",
   areaServed: "Worldwide",
   priceRange: "$$$$",
   serviceType: [
@@ -93,7 +99,6 @@ const professionalServiceSchema = {
     "AI Development",
     "Cloud & DevOps",
     "Product Design",
-    "Freelance Software Engineering",
   ],
 };
 
@@ -111,10 +116,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      name: "Can I hire Minoqtopus as a freelance development team?",
+      name: "Does Minoqtopus work on a project basis or long term?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Minoqtopus works as a freelance software engineering studio and dedicated development team, offering project-based delivery and long-term engineering partnerships.",
+        text: "Both. Minoqtopus LLC takes on fixed-scope projects with defined deliverables, and also works as an embedded engineering partner on longer engagements.",
       },
     },
     {

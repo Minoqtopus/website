@@ -20,8 +20,8 @@ export const SEO_KEYWORDS = [
   "IT business",
   "IT company",
   "IT services company",
-  "freelance software developer",
-  "freelance development team",
+  "software engineering company",
+  "custom software company",
   "hire software engineers",
   "remote software development team",
   "full-stack development company",
@@ -32,8 +32,8 @@ export const SEO_KEYWORDS = [
   "digital product development",
   "software outsourcing",
   "tech consulting company",
-  "freelance business",
-  "freelance software engineering",
+  "Minoqtopus software",
+  "Minoqtopus LLC",
   "startup software development",
   "React development company",
   "Next.js development",
@@ -104,35 +104,35 @@ export function createPageMetadata({
 }
 
 export const homeMetadata = createPageMetadata({
-  title: "Minoqtopus | Software Engineering Company & Freelance Development Studio",
+  title: "Minoqtopus | Custom Software Development Company",
   description:
-    "Hire a world-class software company for custom web, mobile, SaaS, and AI development. Minoqtopus is a premium freelance business and IT engineering studio trusted by startups and enterprises.",
+    "Minoqtopus LLC is a US-registered software company building custom web and mobile applications, SaaS products and AI integrations for startups and growing businesses.",
   path: "/",
   keywords: [
     "best software company",
     "top software development company",
-    "freelance software company",
+    "Minoqtopus software company",
     "software company near me",
-    "hire freelance developers",
+    "hire a software development company",
   ],
 });
 
 export const aboutMetadata = createPageMetadata({
-  title: "About Minoqtopus | Software Engineering Studio & IT Business",
+  title: "About Minoqtopus LLC | Custom Software Company",
   description:
-    "Learn about Minoqtopus, a software engineering company and freelance development business delivering enterprise-grade digital products across fintech, healthcare, energy, and AI.",
+    "Minoqtopus LLC is a software company registered in Wyoming, USA, founded by Sheikh Muhammad Farooq. We build web, mobile, SaaS and AI products for startups and growing businesses.",
   path: "/about",
 });
 
 export const servicesMetadata = createPageMetadata({
-  title: "Software Development Services | Full-Stack, Mobile, Cloud & AI | Minoqtopus",
+  title: "Software Development Services | Minoqtopus Software Company",
   description:
     "Software development services from a leading IT company: full-stack engineering, mobile apps, cloud DevOps, product design, e-commerce, and AI solutions for growing businesses.",
   path: "/services",
   keywords: [
     "software development services",
     "IT development services",
-    "freelance development services",
+    "custom software development company",
     "hire development team",
   ],
 });
@@ -140,7 +140,7 @@ export const servicesMetadata = createPageMetadata({
 export const projectsMetadata = createPageMetadata({
   title: "Software Development Portfolio & Case Studies | Minoqtopus",
   description:
-    "Explore real software projects built by Minoqtopus: fintech, healthcare, energy tech, and AI platforms. Proof of delivery from a top freelance software engineering company.",
+    "Real software projects delivered by Minoqtopus LLC across fintech, healthcare, energy tech and AI. Case studies with the stack, scope and outcome for each build.",
   path: "/projects",
   keywords: [
     "software portfolio",
@@ -152,12 +152,12 @@ export const projectsMetadata = createPageMetadata({
 export const contactMetadata = createPageMetadata({
   title: "Contact Minoqtopus | Hire a Software Development Company",
   description:
-    "Contact Minoqtopus to start your project. Get a free consultation with a software engineering company and freelance development team for web, mobile, SaaS, and AI builds.",
+    "Contact Minoqtopus LLC to scope your project. Book a free consultation with a US-registered software company for web, mobile, SaaS and AI development.",
   path: "/contact",
   keywords: [
     "hire software company",
     "contact software developers",
-    "freelance project inquiry",
+    "software project inquiry",
   ],
 });
 
@@ -181,7 +181,7 @@ export function createCaseStudyMetadata(
 ): Metadata {
   return createPageMetadata({
     title: `${name} Case Study | Software Project by Minoqtopus`,
-    description: `${tagline} See how Minoqtopus, a software engineering company and freelance development studio, delivered this product.`,
+    description: `${tagline} See how Minoqtopus LLC, a US-registered software company, designed and delivered this product.`,
     path: `/projects/${slug}`,
     type: "article",
     keywords: [`${name} case study`, "software development portfolio"],
