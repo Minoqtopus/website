@@ -40,8 +40,8 @@
   /* Semantic, kept separate from the brand accent. 5.7:1 on white. */
   --color-danger: #c81e1e;
 
-  --font-display: var(--font-syne), system-ui, sans-serif;
-  --font-body: var(--font-dm-sans), system-ui, sans-serif;
+  --font-display: var(--font-syne), sans-serif;
+  --font-body: var(--font-dm-sans), sans-serif;
 }
 
 html {
@@ -233,6 +233,12 @@ h6 {
     transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Both reveal states stay on their own layer, so the movement is composited
+   rather than reflowed. */
+.reveal-ready [data-reveal] {
+  will-change: opacity, transform;
+}
+
 /* Staggered children: each step delays the one after it. */
 [data-reveal-stagger] > * {
   transition-delay: calc(var(--reveal-index, 0) * 70ms);
@@ -262,6 +268,10 @@ h6 {
 .ambient-drift {
   animation: ambient-drift 14s ease-in-out infinite;
   will-change: transform, opacity;
+  /* Decorative only: keep it off the layout and out of hit-testing so it can
+     never contribute to layout shift. */
+  contain: layout paint style;
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
