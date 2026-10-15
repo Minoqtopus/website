@@ -17,11 +17,11 @@ export default function CTA() {
           engineering can accelerate your business.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button href="/contact" size="lg">
+          <Button href="/contact" size="lg" analyticsId="cta_band_start_project">
             Book a Consultation
             <ArrowUpRight className="w-5 h-5" />
           </Button>
-          <Button href="mailto:minoqtopus.agency@gmail.com" variant="outline" size="lg">
+          <Button href="mailto:minoqtopus.agency@gmail.com" variant="outline" size="lg" analyticsId="cta_band_email">
             minoqtopus.agency@gmail.com
           </Button>
         </div>

@@ -4,6 +4,7 @@ import RequiredMark from "@/components/ui/RequiredMark";
 import { FormEvent, KeyboardEvent, useState } from "react";
 import { Send, Upload } from "lucide-react";
 import Button from "@/components/ui/Button";
+import { trackEvent, trackOnce } from "@/lib/analytics";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
@@ -63,6 +64,7 @@ export default function JobApplicationForm({
       }
 
       setStatus("success");
+      trackEvent("job_apply_submit", { job_slug: jobSlug });
       setResumeName("");
       setCurrentSalary("");
       setExpectedSalary("");
@@ -73,12 +75,16 @@ export default function JobApplicationForm({
       setErrorMessage(
         error instanceof Error ? error.message : "Failed to submit application."
       );
+      trackEvent("job_apply_error", { job_slug: jobSlug });
     }
   }
 
   return (
     <form
       onSubmit={handleSubmit}
+      onFocus={() =>
+        trackOnce("job_apply_start", { job_slug: jobSlug }, "job_start")
+      }
       className="bg-stone-50 rounded-2xl p-8 md:p-10 border border-stone-200/80"
     >
       <input type="hidden" name="jobSlug" value={jobSlug} />

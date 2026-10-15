@@ -56,11 +56,11 @@ export default function Hero() {
             className="hero-rise flex flex-col sm:flex-row gap-4"
             style={{ "--rise-index": 2 } as React.CSSProperties}
           >
-            <Button href="/contact" size="lg">
+            <Button href="/contact" size="lg" analyticsId="hero_start_project">
               Start Your Project
               <ArrowUpRight className="w-5 h-5" />
             </Button>
-            <Button href="/projects" variant="outline" size="lg">
+            <Button href="/projects" variant="outline" size="lg" analyticsId="hero_explore_work">
               <Play className="w-4 h-4 fill-current" />
               Explore Our Work
             </Button>

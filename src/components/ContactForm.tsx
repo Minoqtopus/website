@@ -4,6 +4,7 @@ import RequiredMark from "@/components/ui/RequiredMark";
 import { FormEvent, useState } from "react";
 import { Send } from "lucide-react";
 import Button from "@/components/ui/Button";
+import { trackEvent, trackOnce, budgetValue } from "@/lib/analytics";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
@@ -46,6 +47,9 @@ export default function ContactForm() {
       if (!Number.isFinite(amount) || amount <= 0) {
         setStatus("error");
         setErrorMessage("Please enter a custom budget greater than zero.");
+        // Tracked separately from a server failure: this is someone who
+        // tried to send and was stopped by our own validation.
+        trackEvent("contact_form_error", { error_type: "invalid_budget" });
         return;
       }
     }
@@ -75,6 +79,25 @@ export default function ContactForm() {
       }
 
       setStatus("success");
+
+      // Two events for one action, on purpose: `generate_lead` is a GA4
+      // recommended event that feeds the built-in lead reports and can be
+      // imported into Google Ads as a conversion, while the custom
+      // `contact_form_submit` carries the detail we want for our own
+      // segments. No personal data in either — only the budget bucket.
+      const leadParams = {
+        budget_bucket: budget || "not_specified",
+        has_company: Boolean(formData.get("company")),
+        page_path: window.location.pathname,
+      };
+
+      trackEvent("generate_lead", {
+        ...leadParams,
+        currency: "USD",
+        value: budgetValue(budget),
+      });
+      trackEvent("contact_form_submit", leadParams);
+
       setBudget("");
       setCustomBudget("");
       form.reset();
@@ -83,12 +106,20 @@ export default function ContactForm() {
       setErrorMessage(
         error instanceof Error ? error.message : "Failed to send message."
       );
+      trackEvent("contact_form_error", {
+        error_type: "submit_failed",
+        budget_bucket: budget || "not_specified",
+      });
     }
   }
 
   return (
     <form
       onSubmit={handleSubmit}
+      // Capture on the form rather than per input: one listener, and it
+      // cannot be missed when a field is added later. The pairing of
+      // start against submit is what gives the abandonment rate.
+      onFocus={() => trackOnce("contact_form_start", {}, "contact_start")}
       className="bg-stone-50 rounded-2xl p-8 md:p-10 border border-stone-200/80"
     >
       <div className="grid sm:grid-cols-2 gap-6 mb-6">
@@ -260,7 +291,7 @@ export default function ContactForm() {
         </p>
       )}
 
-      <Button type="submit" size="lg" className="w-full sm:w-auto" disabled={status === "loading"}>
+      <Button type="submit" size="lg" className="w-full sm:w-auto" disabled={status === "loading"} analyticsId="contact_form_submit_button">
         {status === "loading" ? "Sending..." : "Send Message"}
         <Send className="w-4 h-4" />
       </Button>

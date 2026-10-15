@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, Briefcase, MapPin, Clock, CheckCircle2 } from "lucide-react";
+import ViewTracker from "@/components/analytics/ViewTracker";
 import { notFound } from "next/navigation";
 import Button from "@/components/ui/Button";
 import CTA from "@/components/sections/CTA";
@@ -43,6 +44,7 @@ export default async function JobDetailPage({ params }: Props) {
 
   return (
     <>
+      <ViewTracker event="job_view" itemId={job.slug} itemName={job.title} />
       <section className="relative bg-white pt-28 pb-16 overflow-hidden">
         <div className="absolute inset-0 dot-pattern opacity-40" />
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold-600/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3" />
@@ -82,7 +84,7 @@ export default async function JobDetailPage({ params }: Props) {
             </span>
           </div>
 
-          <Button href={applyHref}>
+          <Button href={applyHref} analyticsId="job_apply_top">
             Apply now
             <ArrowUpRight className="w-4 h-4" />
           </Button>
@@ -147,7 +149,7 @@ export default async function JobDetailPage({ params }: Props) {
                   Submit your resume and application details through our
                   dedicated application form.
                 </p>
-                <Button href={applyHref} className="w-full justify-center">
+                <Button href={applyHref} className="w-full justify-center" analyticsId="job_apply_sidebar">
                   Apply for this role
                   <ArrowUpRight className="w-4 h-4" />
                 </Button>

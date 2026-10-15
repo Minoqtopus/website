@@ -1,6 +1,7 @@
 import CaseStudyImage from "@/components/ui/CaseStudyImage";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, ExternalLink } from "lucide-react";
+import ViewTracker from "@/components/analytics/ViewTracker";
 import { notFound } from "next/navigation";
 import { getCaseStudy, caseStudies } from "@/data/portfolio";
 import Button from "@/components/ui/Button";
@@ -33,6 +34,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
   return (
     <>
+      <ViewTracker event="project_view" itemId={study.slug} itemName={study.name} />
       <section className="relative bg-white pt-28 pb-0 overflow-hidden">
         <div className="absolute inset-0 dot-pattern opacity-40" />
         <div className="relative max-w-7xl mx-auto px-6">
@@ -174,7 +176,7 @@ export default async function CaseStudyPage({ params }: Props) {
                     </li>
                   ))}
                 </ul>
-                <Button href="/contact" className="w-full">
+                <Button href="/contact" className="w-full" analyticsId="project_detail_contact">
                   Start a similar project
                   <ArrowUpRight className="w-4 h-4" />
                 </Button>

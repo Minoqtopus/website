@@ -87,7 +87,7 @@ export default function Navbar() {
           </div>
 
           <div className="hidden lg:flex items-center gap-3">
-            <Button href="/contact" size="sm">
+            <Button href="/contact" size="sm" analyticsId="navbar_start_project">
               Start a Project
               <ArrowUpRight className="w-4 h-4" />
             </Button>
@@ -122,7 +122,7 @@ export default function Navbar() {
               </Link>
             ))}
             <div className="pt-2">
-              <Button href="/contact" className="w-full">
+              <Button href="/contact" className="w-full" analyticsId="navbar_mobile_start_project">
                 Start a Project
                 <ArrowUpRight className="w-4 h-4" />
               </Button>

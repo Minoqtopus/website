@@ -13,6 +13,12 @@ interface ButtonProps {
   onClick?: () => void;
   type?: "button" | "submit";
   disabled?: boolean;
+  /**
+   * Names this button in analytics. Rendered as a data attribute and read by
+   * the delegated listener in EngagementTracker, so Button stays a server
+   * component and CTAs cost no client JavaScript.
+   */
+  analyticsId?: string;
 }
 
 const variants: Record<ButtonVariant, string> = {
@@ -48,27 +54,34 @@ export default function Button({
   onClick,
   type = "button",
   disabled = false,
+  analyticsId,
 }: ButtonProps) {
   const classes = `inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-all duration-200 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed ${variants[variant]} ${sizes[size]} ${className}`;
 
   if (href) {
     if (isExternalHref(href)) {
       return (
-        <a href={href} className={classes}>
+        <a href={href} className={classes} data-cta={analyticsId}>
           {children}
         </a>
       );
     }
 
     return (
-      <Link href={href} className={classes}>
+      <Link href={href} className={classes} data-cta={analyticsId}>
         {children}
       </Link>
     );
   }
 
   return (
-    <button type={type} onClick={onClick} disabled={disabled} className={classes}>
+    <button
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+      className={classes}
+      data-cta={analyticsId}
+    >
       {children}
     </button>
   );

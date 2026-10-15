@@ -60,6 +60,34 @@ export default function PrivacyPage() {
         an individual.
       </p>
       <p>
+        We also use <strong>Google Analytics 4</strong>. Unlike the above, it
+        does set cookies, and it assigns your browser a random identifier so
+        that repeat visits can be recognised as the same session. It records
+        which pages you view, which links and buttons you click, how far you
+        scroll, which FAQ entries you open, and whether you start or complete
+        one of our forms.
+      </p>
+      <p>
+        We do not send Google your name, email address, phone number, company
+        name, or anything you type into a form. Where a form records a budget
+        range, only the range you selected is measured &mdash; never a figure
+        you entered yourself. We have enabled Google&rsquo;s IP anonymisation
+        and have not enabled advertising personalisation or cross-device
+        tracking.
+      </p>
+      <p>
+        You can opt out of Google Analytics entirely by installing{" "}
+        <a
+          href="https://tools.google.com/dlpage/gaoptout"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Google&rsquo;s official opt-out browser add-on
+        </a>
+        , or by using any browser setting or extension that blocks analytics
+        scripts. The site works normally either way.
+      </p>
+      <p>
         Our hosting provider also keeps standard server logs, which include IP
         addresses, for security and reliability purposes.
       </p>
@@ -104,7 +132,12 @@ export default function PrivacyPage() {
         </li>
         <li>
           <strong>Vercel</strong> &mdash; hosts the site and provides the
-          analytics described above.
+          cookie-free analytics described above.
+        </li>
+        <li>
+          <strong>Google</strong> &mdash; provides Google Analytics 4, which
+          measures how the site is used. Google processes this data as
+          described in its own privacy policy.
         </li>
       </ul>
       <p>

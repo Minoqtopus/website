@@ -158,7 +158,7 @@ export default function ServicesPage() {
                   <p className="text-stone-500 leading-relaxed mb-6">
                     {service.description}
                   </p>
-                  <Button href="/contact" size="sm">
+                  <Button href="/contact" size="sm" analyticsId="service_card_contact">
                     Discuss this service
                     <ArrowUpRight className="w-4 h-4" />
                   </Button>
