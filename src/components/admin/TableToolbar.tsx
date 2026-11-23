@@ -31,13 +31,18 @@ export default function TableToolbar({
   const [isPending, startTransition] = useTransition();
 
   const status = (params.get("status") as StatusFilter) || "all";
-  const [query, setQuery] = useState(params.get("q") || "");
+  const urlQuery = params.get("q") || "";
+  const [query, setQuery] = useState(urlQuery);
 
-  // Keep the input in step when the URL changes from elsewhere (back button,
-  // a filter tab), without fighting the user mid-keystroke.
-  useEffect(() => {
-    setQuery(params.get("q") || "");
-  }, [params]);
+  // Keep the input in step when the search in the URL changes from elsewhere
+  // (back button, a shared link), without fighting the user mid-keystroke.
+  // Adjusted while rendering rather than in an effect, so there is no extra
+  // render pass with a stale input.
+  const [seenUrlQuery, setSeenUrlQuery] = useState(urlQuery);
+  if (urlQuery !== seenUrlQuery) {
+    setSeenUrlQuery(urlQuery);
+    setQuery(urlQuery);
+  }
 
   function push(next: Record<string, string | null>) {
     const sp = new URLSearchParams(params.toString());

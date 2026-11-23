@@ -32,7 +32,10 @@ function getNavSurface(scrolled: boolean) {
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
+  // The path the mobile menu was opened on. Navigating changes the path, so the menu
+  // closes by itself, with no effect needed to reset it.
+  const [openOnPath, setOpenOnPath] = useState<string | null>(null);
+  const isOpen = openOnPath === pathname;
   const [scrolled, setScrolled] = useState(false);
   const isAdminRoute = pathname.startsWith("/admin");
 
@@ -43,10 +46,6 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [isAdminRoute]);
-
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
 
   if (isAdminRoute) {
     return null;
@@ -94,7 +93,7 @@ export default function Navbar() {
           </div>
 
           <button
-            onClick={() => setIsOpen(!isOpen)}
+            onClick={() => setOpenOnPath(isOpen ? null : pathname)}
             className="lg:hidden p-2.5 rounded-xl transition-colors cursor-pointer text-stone-700 hover:bg-stone-100"
             aria-label={isOpen ? "Close menu" : "Open menu"}
           >

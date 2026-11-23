@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 interface CountUpProps {
   /** The finished string, e.g. "15+", "$5M+", "100%". */
@@ -32,7 +32,8 @@ function parse(value: string) {
 export default function CountUp({ value }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const [display, setDisplay] = useState(value);
-  const parsed = parse(value);
+  // Parsed once per value, so the effect below can depend on it without re-running each render.
+  const parsed = useMemo(() => parse(value), [value]);
 
   useEffect(() => {
     const el = ref.current;
@@ -75,7 +76,7 @@ export default function CountUp({ value }: CountUpProps) {
       io.disconnect();
       cancelAnimationFrame(frame);
     };
-  }, [value, parsed?.target, parsed?.prefix, parsed?.suffix, parsed?.decimals]);
+  }, [value, parsed]);
 
   return (
     <span ref={ref} className="tabular-nums">
