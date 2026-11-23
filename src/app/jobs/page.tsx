@@ -23,8 +23,15 @@ export default function JobsPage() {
               Open Positions
             </span>
             <h2 className="font-display text-3xl md:text-4xl font-bold text-stone-950 tracking-tight">
-              {jobs.length} role{jobs.length !== 1 ? "s" : ""} available
+              {jobs.length === 0
+                ? "No open positions right now"
+                : `${jobs.length} role${jobs.length !== 1 ? "s" : ""} available`}
             </h2>
+            {jobs.length === 0 && (
+              <p className="mt-4 text-stone-600 leading-relaxed max-w-2xl">
+                We are not hiring at the moment. When a role opens, it will be listed on this page.
+              </p>
+            )}
           </div>
 
           <div className="space-y-4">

@@ -173,12 +173,10 @@ export const contactMetadata = createPageMetadata({
 export const jobsMetadata = createPageMetadata({
   title: "Careers | Minoqtopus",
   description:
-    "Explore career opportunities at Minoqtopus. Apply for Lead Generation: Upwork Leads Expert and help grow a premium software engineering studio.",
+    "Careers at Minoqtopus. There are no open positions right now. New roles are listed here when they open.",
   path: "/jobs",
   keywords: [
     "software company careers",
-    "upwork leads expert",
-    "lead generation jobs remote",
     "Minoqtopus jobs",
   ],
 });

@@ -14,9 +14,11 @@ export interface Job {
   niceToHave: string[];
   whatYouWillLearn: string[];
   benefits: string[];
+  /** Date the role was closed (YYYY-MM-DD). A closed role is kept here for the record but is not shown, linked or open to applications. */
+  closedOn?: string;
 }
 
-export const jobs: Job[] = [
+const allJobs: Job[] = [
   {
     id: "upwork-leads-expert",
     slug: "upwork-leads-expert",
@@ -26,6 +28,7 @@ export const jobs: Job[] = [
     type: "Full-time / Part-time",
     duration: "Ongoing",
     postedAt: "2026-08-10",
+    closedOn: "2026-11-23",
     summary:
       "Own Upwork lead generation for Minoqtopus. Find high-intent buyers, craft winning proposals, and fill our pipeline with qualified software development opportunities.",
     overview:
@@ -72,6 +75,9 @@ export const jobs: Job[] = [
     ],
   },
 ];
+
+/** Open roles only. Every page, the sitemap and the apply API read this list, so closing a role takes it off all of them. */
+export const jobs: Job[] = allJobs.filter((job) => !job.closedOn);
 
 export function getJob(slug: string): Job | undefined {
   return jobs.find((job) => job.slug === slug);
