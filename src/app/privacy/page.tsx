@@ -16,7 +16,7 @@ export default function PrivacyPage() {
       title="Privacy"
       highlight="Policy."
       description="What we collect, why we collect it, and the choices you have."
-      effective="2026-10-10"
+      effective="2026-11-23"
     >
       <p>
         This policy explains how <strong>Minoqtopus LLC</strong> (&ldquo;Minoqtopus&rdquo;,
@@ -147,11 +147,12 @@ export default function PrivacyPage() {
 
       <h2 id="international">International transfers</h2>
       <p>
-        Minoqtopus LLC is registered in the United States and our engineering
-        team works from Pakistan. Our service providers store data in the United
-        States. If you are located elsewhere, your information will be
-        transferred to and processed in these countries, which may have
-        different data protection laws than your own.
+        Minoqtopus LLC is registered in the United States, and our service
+        providers store data in the United States. Members of our team work
+        from other countries and access your information from there to respond
+        to you and deliver our services. If you are located elsewhere, your
+        information will be transferred to and processed in these countries,
+        which may have different data protection laws than your own.
       </p>
 
       <h2 id="retention">How long we keep it</h2>
