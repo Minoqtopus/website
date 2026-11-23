@@ -21,7 +21,7 @@ const contactInfo = [
   {
     icon: MapPin,
     label: "Office",
-    value: "Lahore, Pakistan",
+    value: "30 N Gould St, Ste R, Sheridan, WY 82801, United States",
   },
   {
     icon: Clock,
