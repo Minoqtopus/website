@@ -1,6 +1,7 @@
 import { Target, Eye, Heart, Users, Globe, Award } from "lucide-react";
 import PageHeader from "@/components/ui/PageHeader";
 import CTA from "@/components/sections/CTA";
+import { projectsDelivered } from "@/data/portfolio";
 import { aboutMetadata } from "@/lib/seo";
 
 export const metadata = aboutMetadata;
@@ -102,7 +103,7 @@ export default function About() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { value: "15+", label: "Projects" },
+                { value: projectsDelivered, label: "Projects" },
                 { value: "10+", label: "Team Members" },
                 { value: "9+", label: "Countries" },
                 { value: "100%", label: "Retention" },

@@ -141,14 +141,16 @@ export default async function CaseStudyPage({ params }: Props) {
                 </p>
               </div>
 
-              <div className="bg-stone-50 rounded-2xl p-8 border border-stone-200/80">
-                <h2 className="font-display text-xl font-bold text-stone-950 mb-4">
-                  Key Decision
-                </h2>
-                <p className="text-stone-600 leading-relaxed">
-                  {study.keyDecision}
-                </p>
-              </div>
+              {study.keyDecision && (
+                <div className="bg-stone-50 rounded-2xl p-8 border border-stone-200/80">
+                  <h2 className="font-display text-xl font-bold text-stone-950 mb-4">
+                    Key Decision
+                  </h2>
+                  <p className="text-stone-600 leading-relaxed">
+                    {study.keyDecision}
+                  </p>
+                </div>
+              )}
 
               <div>
                 <h2 className="font-display text-2xl font-bold text-stone-950 mb-4">

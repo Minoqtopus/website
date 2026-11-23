@@ -1,9 +1,10 @@
 import { ArrowUpRight, Play } from "lucide-react";
 import Button from "@/components/ui/Button";
 import CountUp from "@/components/motion/CountUp";
+import { projectsDelivered } from "@/data/portfolio";
 
 const stats = [
-  { value: "15+", label: "Products Delivered" },
+  { value: projectsDelivered, label: "Products Delivered" },
   { value: "$5M+", label: "Client Revenue Enabled" },
   { value: "100%", label: "Client Retention" },
   { value: "9+", label: "Years of Excellence" },

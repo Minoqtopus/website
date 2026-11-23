@@ -1,5 +1,6 @@
 import { Search, PenTool, Code2, Rocket } from "lucide-react";
 import SectionHeader from "@/components/ui/SectionHeader";
+import { projectsDelivered } from "@/data/portfolio";
 
 const steps = [
   {
@@ -41,7 +42,7 @@ export default function Process() {
           label="Our Process"
           title="From concept to"
           highlight="market leader."
-          description="A proven methodology refined over 15+ projects. Transparent, collaborative, and relentlessly focused on outcomes."
+          description={`A proven methodology refined over ${projectsDelivered} projects. Transparent, collaborative, and relentlessly focused on outcomes.`}
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
