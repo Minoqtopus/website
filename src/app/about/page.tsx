@@ -97,8 +97,7 @@ export default function About() {
                   Minoqtopus LLC
                 </strong>
                 , registered with the Wyoming Secretary of State under filing ID{" "}
-                <span className="tabular-nums">2026-002102521</span>, with
-                engineering led from Lahore, Pakistan.
+                <span className="tabular-nums">2026-002102521</span>.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
